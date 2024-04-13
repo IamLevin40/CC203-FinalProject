@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/res">
+        <file>assets/backButton.png</file>
+        <file>assets/formBackground.png</file>
+        <file>assets/inputFieldHud.png</file>
+        <file>assets/lecturerButton.png</file>
+        <file>assets/loginButton.png</file>
+        <file>assets/presenceLogo.png</file>
+        <file>assets/studentButton.png</file>
+    </qresource>
+</RCC>
