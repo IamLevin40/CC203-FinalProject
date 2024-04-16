@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "student_login_form.h"
+#include "lecturer_login_form.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -20,10 +21,12 @@ public:
 
 private slots:
     void on_studentButton_clicked();
+    void on_lecturerButton_clicked();
 
 private:
     Ui::MainWindow *ui;
     Student_Login_Form *student_login_form;
+    Lecturer_Login_Form *lecturer_login_form;
 
 };
 #endif // SELECT_PROFESSION_H

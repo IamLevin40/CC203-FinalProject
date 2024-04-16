@@ -63,7 +63,7 @@
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="resources.qrc">:/res/assets/presenceLogo.png</pixmap>
+      <pixmap resource="resources.qrc">:/res/assets/presence_logo.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>false</bool>
@@ -80,7 +80,7 @@
      </property>
      <property name="font">
       <font>
-       <family>Montserrat ExtraBold</family>
+       <family>Poppins</family>
        <pointsize>-1</pointsize>
        <italic>false</italic>
        <fontweight>ExtraBold</fontweight>
@@ -89,6 +89,7 @@
      <property name="styleSheet">
       <string notr="true">QLabel {
 	color: #FFFFFF;
+	font-family: Poppins;
 	font-size: 35px;
 	font-style: normal;
 	font-weight: 800;
@@ -170,6 +171,7 @@
      <property name="styleSheet">
       <string notr="true">QLabel {
 	color: #FFFFFF;
+	font-family: Poppins;
 	font-size: 24px;
 	font-style: normal;
 	font-weight: 500;
@@ -197,6 +199,7 @@
       <string notr="true">QPushButton {
 	border: 0px;
 	border-radius: 0px;
+	background: none;
 }</string>
      </property>
      <property name="text">
@@ -204,7 +207,7 @@
      </property>
      <property name="icon">
       <iconset resource="resources.qrc">
-       <normaloff>:/res/assets/studentButton.png</normaloff>:/res/assets/studentButton.png</iconset>
+       <normaloff>:/res/assets/student_selection.png</normaloff>:/res/assets/student_selection.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -232,6 +235,7 @@
       <string notr="true">QPushButton {
 	border: 0px;
 	border-radius: 0px;
+	background: none;
 }</string>
      </property>
      <property name="text">
@@ -239,7 +243,7 @@
      </property>
      <property name="icon">
       <iconset resource="resources.qrc">
-       <normaloff>:/res/assets/lecturerButton.png</normaloff>:/res/assets/lecturerButton.png</iconset>
+       <normaloff>:/res/assets/lecturer_selection.png</normaloff>:/res/assets/lecturer_selection.png</iconset>
      </property>
      <property name="iconSize">
       <size>

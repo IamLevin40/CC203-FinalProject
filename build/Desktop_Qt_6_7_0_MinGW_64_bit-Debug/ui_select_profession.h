@@ -58,18 +58,19 @@ public:
         presenceIcon->setObjectName("presenceIcon");
         presenceIcon->setGeometry(QRect(0, 0, 200, 200));
         presenceIcon->setStyleSheet(QString::fromUtf8(""));
-        presenceIcon->setPixmap(QPixmap(QString::fromUtf8(":/res/assets/presenceLogo.png")));
+        presenceIcon->setPixmap(QPixmap(QString::fromUtf8(":/res/assets/presence_logo.png")));
         presenceIcon->setScaledContents(false);
         appTitleLabel = new QLabel(appGroup);
         appTitleLabel->setObjectName("appTitleLabel");
         appTitleLabel->setGeometry(QRect(140, 80, 151, 31));
         QFont font;
-        font.setFamilies({QString::fromUtf8("Montserrat ExtraBold")});
+        font.setFamilies({QString::fromUtf8("Poppins")});
         font.setWeight(QFont::ExtraBold);
         font.setItalic(false);
         appTitleLabel->setFont(font);
         appTitleLabel->setStyleSheet(QString::fromUtf8("QLabel {\n"
 "	color: #FFFFFF;\n"
+"	font-family: Poppins;\n"
 "	font-size: 35px;\n"
 "	font-style: normal;\n"
 "	font-weight: 800;\n"
@@ -111,6 +112,7 @@ public:
         selectTitleLabel->setFont(font2);
         selectTitleLabel->setStyleSheet(QString::fromUtf8("QLabel {\n"
 "	color: #FFFFFF;\n"
+"	font-family: Poppins;\n"
 "	font-size: 24px;\n"
 "	font-style: normal;\n"
 "	font-weight: 500;\n"
@@ -124,9 +126,10 @@ public:
         studentButton->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "	border: 0px;\n"
 "	border-radius: 0px;\n"
+"	background: none;\n"
 "}"));
         QIcon icon;
-        icon.addFile(QString::fromUtf8(":/res/assets/studentButton.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QString::fromUtf8(":/res/assets/student_selection.png"), QSize(), QIcon::Normal, QIcon::Off);
         studentButton->setIcon(icon);
         studentButton->setIconSize(QSize(125, 155));
         studentButton->setFlat(true);
@@ -136,9 +139,10 @@ public:
         lecturerButton->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "	border: 0px;\n"
 "	border-radius: 0px;\n"
+"	background: none;\n"
 "}"));
         QIcon icon1;
-        icon1.addFile(QString::fromUtf8(":/res/assets/lecturerButton.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon1.addFile(QString::fromUtf8(":/res/assets/lecturer_selection.png"), QSize(), QIcon::Normal, QIcon::Off);
         lecturerButton->setIcon(icon1);
         lecturerButton->setIconSize(QSize(125, 155));
         lecturerButton->setCheckable(false);

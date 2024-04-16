@@ -25,3 +25,16 @@ void MainWindow::on_studentButton_clicked()
 
 }
 
+
+void MainWindow::on_lecturerButton_clicked()
+{
+
+    // Hide the previous ui.
+    hide();
+
+    // Show the ui of Lecturer_Login_Form
+    lecturer_login_form = new Lecturer_Login_Form(this);
+    lecturer_login_form->show();
+
+}
+
