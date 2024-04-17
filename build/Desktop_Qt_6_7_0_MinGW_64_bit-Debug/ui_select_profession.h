@@ -20,7 +20,7 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_MainWindow
+class Ui_Select_Profession
 {
 public:
     QWidget *centralwidget;
@@ -33,17 +33,16 @@ public:
     QPushButton *studentButton;
     QPushButton *lecturerButton;
 
-    void setupUi(QMainWindow *MainWindow)
+    void setupUi(QMainWindow *Select_Profession)
     {
-        if (MainWindow->objectName().isEmpty())
-            MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(360, 640);
-        MainWindow->setAutoFillBackground(false);
-        MainWindow->setStyleSheet(QString::fromUtf8("QWidget {\n"
+        if (Select_Profession->objectName().isEmpty())
+            Select_Profession->setObjectName("Select_Profession");
+        Select_Profession->resize(360, 640);
+        Select_Profession->setStyleSheet(QString::fromUtf8("QWidget {\n"
 "	background-color: #000F2A;\n"
 "}\n"
 ""));
-        centralwidget = new QWidget(MainWindow);
+        centralwidget = new QWidget(Select_Profession);
         centralwidget->setObjectName("centralwidget");
         appGroup = new QGroupBox(centralwidget);
         appGroup->setObjectName("appGroup");
@@ -147,24 +146,24 @@ public:
         lecturerButton->setIconSize(QSize(125, 155));
         lecturerButton->setCheckable(false);
         lecturerButton->setFlat(true);
-        MainWindow->setCentralWidget(centralwidget);
+        Select_Profession->setCentralWidget(centralwidget);
 
-        retranslateUi(MainWindow);
+        retranslateUi(Select_Profession);
 
         studentButton->setDefault(false);
         lecturerButton->setDefault(false);
 
 
-        QMetaObject::connectSlotsByName(MainWindow);
+        QMetaObject::connectSlotsByName(Select_Profession);
     } // setupUi
 
-    void retranslateUi(QMainWindow *MainWindow)
+    void retranslateUi(QMainWindow *Select_Profession)
     {
-        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Select Profession", nullptr));
+        Select_Profession->setWindowTitle(QCoreApplication::translate("Select_Profession", "Select Profession", nullptr));
         appGroup->setTitle(QString());
         presenceIcon->setText(QString());
         selectionGroup->setTitle(QString());
-        selectTitleLabel->setText(QCoreApplication::translate("MainWindow", "Select your profession", nullptr));
+        selectTitleLabel->setText(QCoreApplication::translate("Select_Profession", "Select your profession", nullptr));
         studentButton->setText(QString());
         lecturerButton->setText(QString());
     } // retranslateUi
@@ -172,7 +171,7 @@ public:
 };
 
 namespace Ui {
-    class MainWindow: public Ui_MainWindow {};
+    class Select_Profession: public Ui_Select_Profession {};
 } // namespace Ui
 
 QT_END_NAMESPACE

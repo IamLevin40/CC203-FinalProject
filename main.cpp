@@ -5,7 +5,7 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
+    Select_Profession select_profession;
+    select_profession.show();
     return a.exec();
 }

@@ -165,7 +165,6 @@ debug/qrc_resources.cpp: ../../resources.qrc \
 		../../assets/student_record.png \
 		../../assets/student_selected.png \
 		../../assets/delete.png \
-		../../assets/page_arrow.png \
 		../../assets/data_field_short.png \
 		../../assets/data_field_long.png \
 		../../assets/camera_corner_topleft.png \
@@ -194,8 +193,10 @@ debug/qrc_resources.cpp: ../../resources.qrc \
 		../../assets/header_large.png \
 		../../assets/enroll_student.png \
 		../../assets/camera_corner_bottomleft.png \
+		../../assets/prev_arrow.png \
 		../../assets/yes.png \
 		../../assets/camera_corner_topright.png \
+		../../assets/next_arrow.png \
 		../../assets/delete_warning.png \
 		../../assets/header_short.png \
 		../../assets/edit.png \
@@ -203,6 +204,7 @@ debug/qrc_resources.cpp: ../../resources.qrc \
 		../../assets/lecturer_selection.png \
 		../../assets/home_unselected.png \
 		../../assets/create_class.png \
+		../../assets/search_field_short.png \
 		../../assets/footer.png \
 		../../assets/student_unselected.png
 	C:\Qt\6.7.0\mingw_64\bin\rcc.exe -name resources --no-zstd ..\..\resources.qrc -o debug\qrc_resources.cpp
@@ -2396,7 +2398,25 @@ debug/lecturer_attendance_list.o: ../../lecturer_attendance_list.cpp ../../lectu
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qguiapplication_platform.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
-		ui_lecturer_attendance_list.h
+		ui_lecturer_attendance_list.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QVariant \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/QIcon \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QApplication \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qapplication.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QGroupBox \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qgroupbox.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QLabel \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlabel.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qpicture.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QPushButton \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QScrollArea \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qscrollarea.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\lecturer_attendance_list.o ..\..\lecturer_attendance_list.cpp
 
 debug/lecturer_attendance_scanner.o: ../../lecturer_attendance_scanner.cpp ../../lecturer_attendance_scanner.h \
@@ -2588,7 +2608,22 @@ debug/lecturer_attendance_scanner.o: ../../lecturer_attendance_scanner.cpp ../..
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qguiapplication_platform.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
-		ui_lecturer_attendance_scanner.h
+		ui_lecturer_attendance_scanner.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QVariant \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/QIcon \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QApplication \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qapplication.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QGroupBox \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qgroupbox.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QLabel \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlabel.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qpicture.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QPushButton \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\lecturer_attendance_scanner.o ..\..\lecturer_attendance_scanner.cpp
 
 debug/lecturer_classes_info.o: ../../lecturer_classes_info.cpp ../../lecturer_classes_info.h \
@@ -2780,7 +2815,23 @@ debug/lecturer_classes_info.o: ../../lecturer_classes_info.cpp ../../lecturer_cl
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qguiapplication_platform.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
-		ui_lecturer_classes_info.h
+		ui_lecturer_classes_info.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QVariant \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/QIcon \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QApplication \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qapplication.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QFrame \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QGroupBox \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qgroupbox.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QLabel \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlabel.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qpicture.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QPushButton \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\lecturer_classes_info.o ..\..\lecturer_classes_info.cpp
 
 debug/lecturer_classes_list.o: ../../lecturer_classes_list.cpp ../../lecturer_classes_list.h \
@@ -2972,7 +3023,25 @@ debug/lecturer_classes_list.o: ../../lecturer_classes_list.cpp ../../lecturer_cl
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qguiapplication_platform.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
-		ui_lecturer_classes_list.h
+		ui_lecturer_classes_list.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QVariant \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/QIcon \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QApplication \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qapplication.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QGroupBox \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qgroupbox.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QLabel \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlabel.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qpicture.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QPushButton \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QScrollArea \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qscrollarea.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\lecturer_classes_list.o ..\..\lecturer_classes_list.cpp
 
 debug/lecturer_home.o: ../../lecturer_home.cpp ../../lecturer_home.h \
@@ -3164,7 +3233,22 @@ debug/lecturer_home.o: ../../lecturer_home.cpp ../../lecturer_home.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qguiapplication_platform.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
-		ui_lecturer_home.h
+		ui_lecturer_home.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QVariant \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/QIcon \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QApplication \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qapplication.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QGroupBox \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qgroupbox.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QLabel \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlabel.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qpicture.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QPushButton \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\lecturer_home.o ..\..\lecturer_home.cpp
 
 debug/lecturer_login_form.o: ../../lecturer_login_form.cpp ../../lecturer_login_form.h \
@@ -3582,7 +3666,25 @@ debug/lecturer_student_record.o: ../../lecturer_student_record.cpp ../../lecture
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qguiapplication_platform.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
-		ui_lecturer_student_record.h
+		ui_lecturer_student_record.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QVariant \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/QIcon \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QApplication \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qapplication.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QGroupBox \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qgroupbox.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QLabel \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlabel.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qpicture.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QPushButton \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QScrollArea \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qscrollarea.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\lecturer_student_record.o ..\..\lecturer_student_record.cpp
 
 debug/main.o: ../../main.cpp ../../select_profession.h \

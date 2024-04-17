@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>Select_Profession</class>
+ <widget class="QMainWindow" name="Select_Profession">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -12,9 +12,6 @@
   </property>
   <property name="windowTitle">
    <string>Select Profession</string>
-  </property>
-  <property name="autoFillBackground">
-   <bool>false</bool>
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget {

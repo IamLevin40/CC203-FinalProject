@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Lecturer Classes List</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QGroupBox" name="headerGroup">
@@ -284,7 +284,7 @@
      <property name="geometry">
       <rect>
        <x>120</x>
-       <y>80</y>
+       <y>77</y>
        <width>30</width>
        <height>30</height>
       </rect>
@@ -317,7 +317,7 @@
      <property name="geometry">
       <rect>
        <x>105</x>
-       <y>105</y>
+       <y>102</y>
        <width>60</width>
        <height>16</height>
       </rect>
@@ -344,7 +344,7 @@
      <property name="geometry">
       <rect>
        <x>210</x>
-       <y>80</y>
+       <y>77</y>
        <width>30</width>
        <height>30</height>
       </rect>
@@ -377,7 +377,7 @@
      <property name="geometry">
       <rect>
        <x>195</x>
-       <y>105</y>
+       <y>102</y>
        <width>60</width>
        <height>16</height>
       </rect>
@@ -432,7 +432,7 @@
       <x>25</x>
       <y>150</y>
       <width>180</width>
-      <height>16</height>
+      <height>20</height>
      </rect>
     </property>
     <property name="styleSheet">

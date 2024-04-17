@@ -1,40 +1,30 @@
 #include "select_profession.h"
 #include "ui_select_profession.h"
 
-MainWindow::MainWindow(QWidget *parent)
+Select_Profession::Select_Profession(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    , ui(new Ui::Select_Profession)
 {
     ui->setupUi(this);
 }
 
-MainWindow::~MainWindow()
+Select_Profession::~Select_Profession()
 {
     delete ui;
 }
 
-void MainWindow::on_studentButton_clicked()
+void Select_Profession::on_studentButton_clicked()
 {
-
-    // Hide the previous ui.
     hide();
-
-    // Show the ui of Student_Login_Form
-    student_login_form = new Student_Login_Form(this);
-    student_login_form->show();
-
+    student_login_form_ui = new Student_Login_Form(this);
+    student_login_form_ui->show();
 }
 
 
-void MainWindow::on_lecturerButton_clicked()
+void Select_Profession::on_lecturerButton_clicked()
 {
-
-    // Hide the previous ui.
     hide();
-
-    // Show the ui of Lecturer_Login_Form
-    lecturer_login_form = new Lecturer_Login_Form(this);
-    lecturer_login_form->show();
-
+    lecturer_login_form_ui = new Lecturer_Login_Form(this);
+    lecturer_login_form_ui->show();
 }
 

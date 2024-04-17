@@ -42,6 +42,7 @@ public:
     QComboBox *collegeCombobox;
     QLabel *collegeHud;
     QPushButton *loginButton;
+    QPushButton *backButton;
 
     void setupUi(QMainWindow *Student_Login_Form)
     {
@@ -188,7 +189,7 @@ public:
 "	font-weight: 500;\n"
 "	line-height: normal;\n"
 "}"));
-        pinTextbox->setMaxLength(16);
+        pinTextbox->setMaxLength(6);
         pinTextbox->setEchoMode(QLineEdit::Password);
         collegeGroup = new QGroupBox(formGroup);
         collegeGroup->setObjectName("collegeGroup");
@@ -270,6 +271,19 @@ public:
         loginButton->setIcon(icon1);
         loginButton->setIconSize(QSize(210, 40));
         loginButton->setFlat(true);
+        backButton = new QPushButton(centralwidget);
+        backButton->setObjectName("backButton");
+        backButton->setGeometry(QRect(15, 15, 30, 30));
+        backButton->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"	border: 0px;\n"
+"	border-radius: 0px;\n"
+"	background: none;\n"
+"}"));
+        QIcon icon2;
+        icon2.addFile(QString::fromUtf8(":/res/assets/back.png"), QSize(), QIcon::Normal, QIcon::Off);
+        backButton->setIcon(icon2);
+        backButton->setIconSize(QSize(30, 30));
+        backButton->setFlat(true);
         Student_Login_Form->setCentralWidget(centralwidget);
 
         retranslateUi(Student_Login_Form);
@@ -305,6 +319,7 @@ public:
         collegeCombobox->setPlaceholderText(QCoreApplication::translate("Student_Login_Form", "College", nullptr));
         collegeHud->setText(QString());
         loginButton->setText(QString());
+        backButton->setText(QString());
     } // retranslateUi
 
 };

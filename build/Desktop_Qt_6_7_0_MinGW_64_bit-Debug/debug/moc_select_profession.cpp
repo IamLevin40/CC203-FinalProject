@@ -33,9 +33,9 @@ QT_WARNING_DISABLE_GCC("-Wuseless-cast")
 namespace {
 
 #ifdef QT_MOC_HAS_STRINGDATA
-struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {};
-constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers::stringData(
-    "MainWindow",
+struct qt_meta_stringdata_CLASSSelect_ProfessionENDCLASS_t {};
+constexpr auto qt_meta_stringdata_CLASSSelect_ProfessionENDCLASS = QtMocHelpers::stringData(
+    "Select_Profession",
     "on_studentButton_clicked",
     "",
     "on_lecturerButton_clicked"
@@ -45,7 +45,7 @@ constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers::string
 #endif // !QT_MOC_HAS_STRINGDATA
 } // unnamed namespace
 
-Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
+Q_CONSTINIT static const uint qt_meta_data_CLASSSelect_ProfessionENDCLASS[] = {
 
  // content:
       12,       // revision
@@ -69,15 +69,15 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
        0        // eod
 };
 
-Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
+Q_CONSTINIT const QMetaObject Select_Profession::staticMetaObject = { {
     QMetaObject::SuperData::link<QMainWindow::staticMetaObject>(),
-    qt_meta_stringdata_CLASSMainWindowENDCLASS.offsetsAndSizes,
-    qt_meta_data_CLASSMainWindowENDCLASS,
+    qt_meta_stringdata_CLASSSelect_ProfessionENDCLASS.offsetsAndSizes,
+    qt_meta_data_CLASSSelect_ProfessionENDCLASS,
     qt_static_metacall,
     nullptr,
-    qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSMainWindowENDCLASS_t,
+    qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSSelect_ProfessionENDCLASS_t,
         // Q_OBJECT / Q_GADGET
-        QtPrivate::TypeAndForceComplete<MainWindow, std::true_type>,
+        QtPrivate::TypeAndForceComplete<Select_Profession, std::true_type>,
         // method 'on_studentButton_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_lecturerButton_clicked'
@@ -86,10 +86,10 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
     nullptr
 } };
 
-void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void Select_Profession::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        auto *_t = static_cast<MainWindow *>(_o);
+        auto *_t = static_cast<Select_Profession *>(_o);
         (void)_t;
         switch (_id) {
         case 0: _t->on_studentButton_clicked(); break;
@@ -100,20 +100,20 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
     (void)_a;
 }
 
-const QMetaObject *MainWindow::metaObject() const
+const QMetaObject *Select_Profession::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *MainWindow::qt_metacast(const char *_clname)
+void *Select_Profession::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_CLASSMainWindowENDCLASS.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_CLASSSelect_ProfessionENDCLASS.stringdata0))
         return static_cast<void*>(this);
     return QMainWindow::qt_metacast(_clname);
 }
 
-int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int Select_Profession::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QMainWindow::qt_metacall(_c, _id, _a);
     if (_id < 0)
