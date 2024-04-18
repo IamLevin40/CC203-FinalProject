@@ -14,6 +14,11 @@
    <string>Lecturer Classes List</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">QWidget #centralwidget {
+	background-color: #FFFFFF;
+}</string>
+   </property>
    <widget class="QGroupBox" name="headerGroup">
     <property name="geometry">
      <rect>
@@ -469,6 +474,11 @@
        <width>308</width>
        <height>328</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QWidget {
+	background-color: #FFFFFF;
+}</string>
      </property>
     </widget>
    </widget>

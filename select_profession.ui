@@ -14,12 +14,15 @@
    <string>Select Profession</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QWidget {
-	background-color: #000F2A;
-}
+   <string notr="true">
 </string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">QWidget #centralwidget {
+	background-color: #000F2A
+}</string>
+   </property>
    <widget class="QGroupBox" name="appGroup">
     <property name="geometry">
      <rect>

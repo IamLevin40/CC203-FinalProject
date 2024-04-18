@@ -14,6 +14,11 @@
    <string>Lecturer Home</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">QWidget #centralwidget {
+	background-color: #FFFFFF;
+}</string>
+   </property>
    <widget class="QGroupBox" name="headerGroup">
     <property name="geometry">
      <rect>

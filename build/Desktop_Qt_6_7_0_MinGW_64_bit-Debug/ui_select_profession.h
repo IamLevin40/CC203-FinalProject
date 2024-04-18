@@ -38,12 +38,12 @@ public:
         if (Select_Profession->objectName().isEmpty())
             Select_Profession->setObjectName("Select_Profession");
         Select_Profession->resize(360, 640);
-        Select_Profession->setStyleSheet(QString::fromUtf8("QWidget {\n"
-"	background-color: #000F2A;\n"
-"}\n"
-""));
+        Select_Profession->setStyleSheet(QString::fromUtf8(""));
         centralwidget = new QWidget(Select_Profession);
         centralwidget->setObjectName("centralwidget");
+        centralwidget->setStyleSheet(QString::fromUtf8("QWidget #centralwidget {\n"
+"	background-color: #000F2A\n"
+"}"));
         appGroup = new QGroupBox(centralwidget);
         appGroup->setObjectName("appGroup");
         appGroup->setGeometry(QRect(30, 100, 300, 200));

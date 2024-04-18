@@ -49,12 +49,12 @@ public:
         if (Student_Login_Form->objectName().isEmpty())
             Student_Login_Form->setObjectName("Student_Login_Form");
         Student_Login_Form->resize(360, 640);
-        Student_Login_Form->setStyleSheet(QString::fromUtf8("QWidget {\n"
-"	background-color: #000F2A;\n"
-"}\n"
-""));
+        Student_Login_Form->setStyleSheet(QString::fromUtf8(""));
         centralwidget = new QWidget(Student_Login_Form);
         centralwidget->setObjectName("centralwidget");
+        centralwidget->setStyleSheet(QString::fromUtf8("QWidget #centralwidget {\n"
+"	background-color: #000F2A\n"
+"}"));
         appGroup = new QGroupBox(centralwidget);
         appGroup->setObjectName("appGroup");
         appGroup->setGeometry(QRect(30, 20, 300, 200));
@@ -235,12 +235,29 @@ public:
 "}\n"
 "\n"
 "QComboBox QAbstractItemView {\n"
-"    margin-top: 4px;\n"
+"    background-color: #000F2A;\n"
+"}\n"
+"\n"
+"QComboBox QScrollBar:vertical {\n"
+"    background-color: #000F2A;\n"
+"	width: 12px;\n"
+"}\n"
+"\n"
+"QComboBox QScrollBar::handle:vertical {\n"
+"    background-color: #FFFFFF;\n"
+"}\n"
+"\n"
+"QComboBox QScrollBar::add-line:vertical,\n"
+"QComboBox QScrollBar::sub-line:vertical {\n"
+"    border: none;\n"
+"    background: none;\n"
+"    height: 0px;\n"
 "}\n"
 "\n"
 "QComboBox QScrollBar::add-page:vertical,\n"
 "QComboBox QScrollBar::sub-page:vertical {\n"
-"    background: none;\n"
+"    background-color: #000F2A;\n"
+"	background: none;\n"
 "	border-style: solid;\n"
 "}"));
         collegeCombobox->setEditable(false);
