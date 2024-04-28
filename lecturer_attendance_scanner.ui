@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Lecturer Attendance Scanner</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/res/assets/presence_logo.png</normaloff>:/res/assets/presence_logo.png</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
     <string notr="true">QWidget #centralwidget {
@@ -92,9 +96,9 @@
     <widget class="QLabel" name="headerSubjectCodeLabel">
      <property name="geometry">
       <rect>
-       <x>25</x>
+       <x>55</x>
        <y>15</y>
-       <width>310</width>
+       <width>250</width>
        <height>30</height>
       </rect>
      </property>
@@ -128,7 +132,7 @@
      <property name="geometry">
       <rect>
        <x>25</x>
-       <y>45</y>
+       <y>40</y>
        <width>310</width>
        <height>15</height>
       </rect>
@@ -155,7 +159,7 @@
      <property name="geometry">
       <rect>
        <x>25</x>
-       <y>65</y>
+       <y>60</y>
        <width>310</width>
        <height>20</height>
       </rect>
@@ -337,6 +341,9 @@
      </property>
     </widget>
     <widget class="QPushButton" name="confirmButton">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>75</x>
@@ -376,7 +383,7 @@
       <x>0</x>
       <y>100</y>
       <width>360</width>
-      <height>430</height>
+      <height>440</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -483,10 +490,16 @@
      <property name="geometry">
       <rect>
        <x>25</x>
-       <y>370</y>
+       <y>375</y>
        <width>310</width>
        <height>60</height>
       </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
      </property>
      <property name="title">
       <string/>
@@ -513,7 +526,7 @@
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
-     <widget class="QLabel" name="avatarLabel">
+     <widget class="QLabel" name="dataAvatarLabel">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -525,9 +538,6 @@
       <property name="text">
        <string/>
       </property>
-      <property name="pixmap">
-       <pixmap resource="resources.qrc">:/res/assets/cict_avatar.png</pixmap>
-      </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
       </property>
@@ -536,9 +546,9 @@
       <property name="geometry">
        <rect>
         <x>60</x>
-        <y>8</y>
+        <y>12</y>
         <width>180</width>
-        <height>20</height>
+        <height>10</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -552,16 +562,16 @@
 }</string>
       </property>
       <property name="text">
-       <string>LN&lt;?&gt;, FN&lt;?&gt;</string>
+       <string/>
       </property>
      </widget>
      <widget class="QLabel" name="dataProgramLabel">
       <property name="geometry">
        <rect>
         <x>60</x>
-        <y>20</y>
+        <y>25</y>
         <width>180</width>
-        <height>20</height>
+        <height>10</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -575,16 +585,16 @@
 }</string>
       </property>
       <property name="text">
-       <string>C&lt;?&gt; - P&lt;?&gt; YS&lt;?&gt;</string>
+       <string/>
       </property>
      </widget>
      <widget class="QLabel" name="dataStudentIdLabel">
       <property name="geometry">
        <rect>
         <x>60</x>
-        <y>35</y>
-        <width>180</width>
-        <height>20</height>
+        <y>40</y>
+        <width>70</width>
+        <height>10</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -598,9 +608,62 @@
 }</string>
       </property>
       <property name="text">
-       <string>20**M****</string>
+       <string/>
       </property>
      </widget>
+     <widget class="QLabel" name="dataIsRegularLabel">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>40</y>
+        <width>70</width>
+        <height>10</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel {
+	color: #21C5DF;
+	font-family: Poppins;
+	font-size: 9px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QLabel" name="errorLabel">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>25</x>
+       <y>360</y>
+       <width>310</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel {
+	background: none;
+	color: #FF003D;
+	font-family: Poppins;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
     </widget>
    </widget>
    <zorder>footerGroup</zorder>

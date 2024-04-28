@@ -38,6 +38,9 @@ public:
         if (Select_Profession->objectName().isEmpty())
             Select_Profession->setObjectName("Select_Profession");
         Select_Profession->resize(360, 640);
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/res/assets/presence_logo.png"), QSize(), QIcon::Normal, QIcon::Off);
+        Select_Profession->setWindowIcon(icon);
         Select_Profession->setStyleSheet(QString::fromUtf8(""));
         centralwidget = new QWidget(Select_Profession);
         centralwidget->setObjectName("centralwidget");
@@ -127,9 +130,9 @@ public:
 "	border-radius: 0px;\n"
 "	background: none;\n"
 "}"));
-        QIcon icon;
-        icon.addFile(QString::fromUtf8(":/res/assets/student_selection.png"), QSize(), QIcon::Normal, QIcon::Off);
-        studentButton->setIcon(icon);
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8(":/res/assets/student_selection.png"), QSize(), QIcon::Normal, QIcon::Off);
+        studentButton->setIcon(icon1);
         studentButton->setIconSize(QSize(125, 155));
         studentButton->setFlat(true);
         lecturerButton = new QPushButton(selectionGroup);
@@ -140,9 +143,9 @@ public:
 "	border-radius: 0px;\n"
 "	background: none;\n"
 "}"));
-        QIcon icon1;
-        icon1.addFile(QString::fromUtf8(":/res/assets/lecturer_selection.png"), QSize(), QIcon::Normal, QIcon::Off);
-        lecturerButton->setIcon(icon1);
+        QIcon icon2;
+        icon2.addFile(QString::fromUtf8(":/res/assets/lecturer_selection.png"), QSize(), QIcon::Normal, QIcon::Off);
+        lecturerButton->setIcon(icon2);
         lecturerButton->setIconSize(QSize(125, 155));
         lecturerButton->setCheckable(false);
         lecturerButton->setFlat(true);

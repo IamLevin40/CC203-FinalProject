@@ -42,6 +42,7 @@ public:
     QComboBox *collegeCombobox;
     QLabel *collegeHud;
     QPushButton *loginButton;
+    QLabel *errorLabel;
     QPushButton *backButton;
 
     void setupUi(QMainWindow *Student_Login_Form)
@@ -49,6 +50,9 @@ public:
         if (Student_Login_Form->objectName().isEmpty())
             Student_Login_Form->setObjectName("Student_Login_Form");
         Student_Login_Form->resize(360, 640);
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/res/assets/presence_logo.png"), QSize(), QIcon::Normal, QIcon::Off);
+        Student_Login_Form->setWindowIcon(icon);
         Student_Login_Form->setStyleSheet(QString::fromUtf8(""));
         centralwidget = new QWidget(Student_Login_Form);
         centralwidget->setObjectName("centralwidget");
@@ -203,18 +207,6 @@ public:
         collegeGroup->setAlignment(Qt::AlignCenter);
         collegeGroup->setFlat(true);
         collegeCombobox = new QComboBox(collegeGroup);
-        QIcon icon;
-        icon.addFile(QString::fromUtf8(":/res/assets/cict_avatar.png"), QSize(), QIcon::Normal, QIcon::Off);
-        collegeCombobox->addItem(icon, QString());
-        collegeCombobox->addItem(QString());
-        collegeCombobox->addItem(QString());
-        collegeCombobox->addItem(QString());
-        collegeCombobox->addItem(QString());
-        collegeCombobox->addItem(QString());
-        collegeCombobox->addItem(QString());
-        collegeCombobox->addItem(QString());
-        collegeCombobox->addItem(QString());
-        collegeCombobox->addItem(QString());
         collegeCombobox->setObjectName("collegeCombobox");
         collegeCombobox->setGeometry(QRect(12, 0, 226, 30));
         QSizePolicy sizePolicy(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Fixed);
@@ -228,7 +220,7 @@ public:
 "	border: 0px;\n"
 "	color: #FFFFFF;\n"
 "	font-family: Poppins;\n"
-"	font-size: 12px;\n"
+"	font-size: 10px;\n"
 "	font-style: normal;\n"
 "	font-weight: 500;\n"
 "	line-height: normal;\n"
@@ -288,6 +280,20 @@ public:
         loginButton->setIcon(icon1);
         loginButton->setIconSize(QSize(210, 40));
         loginButton->setFlat(true);
+        errorLabel = new QLabel(formGroup);
+        errorLabel->setObjectName("errorLabel");
+        errorLabel->setEnabled(true);
+        errorLabel->setGeometry(QRect(25, 310, 310, 20));
+        errorLabel->setStyleSheet(QString::fromUtf8("QLabel {\n"
+"	background: none;\n"
+"	color: #FF003D;\n"
+"	font-family: Poppins;\n"
+"	font-size: 10px;\n"
+"	font-style: normal;\n"
+"	font-weight: 600;\n"
+"	line-height: normal;\n"
+"}"));
+        errorLabel->setAlignment(Qt::AlignCenter);
         backButton = new QPushButton(centralwidget);
         backButton->setObjectName("backButton");
         backButton->setGeometry(QRect(15, 15, 30, 30));
@@ -322,20 +328,10 @@ public:
         pinHud->setText(QString());
         pinTextbox->setPlaceholderText(QCoreApplication::translate("Student_Login_Form", "Pin", nullptr));
         collegeGroup->setTitle(QString());
-        collegeCombobox->setItemText(0, QCoreApplication::translate("Student_Login_Form", "CICT", nullptr));
-        collegeCombobox->setItemText(1, QCoreApplication::translate("Student_Login_Form", "CAS", nullptr));
-        collegeCombobox->setItemText(2, QCoreApplication::translate("Student_Login_Form", "CBM", nullptr));
-        collegeCombobox->setItemText(3, QCoreApplication::translate("Student_Login_Form", "COC", nullptr));
-        collegeCombobox->setItemText(4, QCoreApplication::translate("Student_Login_Form", "COD", nullptr));
-        collegeCombobox->setItemText(5, QCoreApplication::translate("Student_Login_Form", "COE", nullptr));
-        collegeCombobox->setItemText(6, QCoreApplication::translate("Student_Login_Form", "COL", nullptr));
-        collegeCombobox->setItemText(7, QCoreApplication::translate("Student_Login_Form", "COM", nullptr));
-        collegeCombobox->setItemText(8, QCoreApplication::translate("Student_Login_Form", "CON", nullptr));
-        collegeCombobox->setItemText(9, QCoreApplication::translate("Student_Login_Form", "PESCAR", nullptr));
-
         collegeCombobox->setPlaceholderText(QCoreApplication::translate("Student_Login_Form", "College", nullptr));
         collegeHud->setText(QString());
         loginButton->setText(QString());
+        errorLabel->setText(QString());
         backButton->setText(QString());
     } // retranslateUi
 

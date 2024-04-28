@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Lecturer Attendance List</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/res/assets/presence_logo.png</normaloff>:/res/assets/presence_logo.png</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
     <string notr="true">QWidget #centralwidget {
@@ -228,6 +232,36 @@
       <bool>true</bool>
      </property>
     </widget>
+    <widget class="QLabel" name="errorLabel">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>25</x>
+       <y>5</y>
+       <width>310</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel {
+	background: none;
+	color: #FF003D;
+	font-family: Poppins;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
     <zorder>whiteBox</zorder>
     <zorder>footerHud</zorder>
     <zorder>homeButton</zorder>
@@ -235,6 +269,7 @@
     <zorder>classListButton</zorder>
     <zorder>classListLabel</zorder>
     <zorder>takeAttendanceButton</zorder>
+    <zorder>errorLabel</zorder>
    </widget>
    <widget class="QGroupBox" name="headerGroup">
     <property name="geometry">
@@ -309,9 +344,9 @@
     <widget class="QLabel" name="headerSubjectCodeLabel">
      <property name="geometry">
       <rect>
-       <x>25</x>
+       <x>55</x>
        <y>15</y>
-       <width>310</width>
+       <width>250</width>
        <height>30</height>
       </rect>
      </property>
@@ -345,7 +380,7 @@
      <property name="geometry">
       <rect>
        <x>25</x>
-       <y>45</y>
+       <y>40</y>
        <width>310</width>
        <height>15</height>
       </rect>
@@ -372,7 +407,7 @@
      <property name="geometry">
       <rect>
        <x>25</x>
-       <y>65</y>
+       <y>60</y>
        <width>310</width>
        <height>20</height>
       </rect>
@@ -473,7 +508,7 @@
 }</string>
      </property>
      <property name="text">
-      <string>Date&lt;?&gt;</string>
+      <string/>
      </property>
     </widget>
     <widget class="QLabel" name="timeLabel">
@@ -496,11 +531,112 @@
 }</string>
      </property>
      <property name="text">
-      <string>Time&lt;?&gt;</string>
+      <string/>
      </property>
     </widget>
    </widget>
-   <widget class="QScrollArea" name="attendanceListArea">
+   <widget class="QGroupBox" name="pageGroup">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>105</y>
+      <width>90</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+	border: 0px;
+	border-radius: 0px;
+}</string>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QPushButton" name="nextPageButton">
+     <property name="geometry">
+      <rect>
+       <x>55</x>
+       <y>5</y>
+       <width>20</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+	border: 0px;
+	border-radius: 0px;
+	background: none;
+}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="resources.qrc">
+       <normaloff>:/res/assets/next_arrow.png</normaloff>:/res/assets/next_arrow.png</iconset>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="prevPageButton">
+     <property name="geometry">
+      <rect>
+       <x>15</x>
+       <y>5</y>
+       <width>20</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+	border: 0px;
+	border-radius: 0px;
+	background: none;
+}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="resources.qrc">
+       <normaloff>:/res/assets/prev_arrow.png</normaloff>:/res/assets/prev_arrow.png</iconset>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="numberPageTextbox">
+     <property name="geometry">
+      <rect>
+       <x>31</x>
+       <y>5</y>
+       <width>30</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLineEdit {
+	background-color: transparent;
+	border: 0px;
+	color: #000F2A;
+	font-family: Poppins;
+	font-size: 13px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}</string>
+     </property>
+     <property name="text">
+      <string>1</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="attendanceListArea">
     <property name="geometry">
      <rect>
       <x>25</x>
@@ -509,30 +645,23 @@
       <height>330</height>
      </rect>
     </property>
-    <property name="widgetResizable">
-     <bool>true</bool>
-    </property>
-    <widget class="QWidget" name="contents">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>308</width>
-       <height>328</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QWidget {
-	background-color: #FFFFFF;
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+	border: 0px;
+	border-radius: 0px;
+	background: none;
 }</string>
-     </property>
-    </widget>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
    </widget>
    <zorder>headerGroup</zorder>
    <zorder>titleLabel</zorder>
    <zorder>datetimeGroup</zorder>
-   <zorder>attendanceListArea</zorder>
    <zorder>footerGroup</zorder>
+   <zorder>pageGroup</zorder>
+   <zorder>attendanceListArea</zorder>
   </widget>
  </widget>
  <resources>

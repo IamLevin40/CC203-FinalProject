@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Lecturer Login Form</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/res/assets/presence_logo.png</normaloff>:/res/assets/presence_logo.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true"/>
   </property>
@@ -412,7 +416,7 @@
 	border: 0px;
 	color: #FFFFFF;
 	font-family: Poppins;
-	font-size: 12px;
+	font-size: 10px;
 	font-style: normal;
 	font-weight: 500;
 	line-height: normal;
@@ -460,60 +464,6 @@ QComboBox QScrollBar::sub-page:vertical {
       <property name="placeholderText">
        <string>College</string>
       </property>
-      <item>
-       <property name="text">
-        <string>CICT</string>
-       </property>
-       <property name="icon">
-        <iconset resource="resources.qrc">
-         <normaloff>:/res/assets/cict_avatar.png</normaloff>:/res/assets/cict_avatar.png</iconset>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>CAS</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>CBM</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>COC</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>COD</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>COE</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>COL</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>COM</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>CON</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>PESCAR</string>
-       </property>
-      </item>
      </widget>
      <widget class="QLabel" name="collegeHud">
       <property name="geometry">
@@ -576,6 +526,36 @@ QComboBox QScrollBar::sub-page:vertical {
      </property>
      <property name="flat">
       <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="errorLabel">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>25</x>
+       <y>310</y>
+       <width>310</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel {
+	background: none;
+	color: #FF003D;
+	font-family: Poppins;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
    </widget>

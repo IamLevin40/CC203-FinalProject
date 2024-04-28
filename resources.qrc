@@ -9,9 +9,17 @@
         <file>assets/camera_corner_bottomright.png</file>
         <file>assets/camera_corner_topleft.png</file>
         <file>assets/camera_corner_topright.png</file>
+        <file>assets/cas_avatar.png</file>
+        <file>assets/cbm_avatar.png</file>
         <file>assets/cict_avatar.png</file>
         <file>assets/class_list_selected.png</file>
         <file>assets/class_list_unselected.png</file>
+        <file>assets/coc_avatar.png</file>
+        <file>assets/cod_avatar.png</file>
+        <file>assets/coe_avatar.png</file>
+        <file>assets/col_avatar.png</file>
+        <file>assets/com_avatar.png</file>
+        <file>assets/con_avatar.png</file>
         <file>assets/confirm.png</file>
         <file>assets/create_class.png</file>
         <file>assets/data_display.png</file>
@@ -37,6 +45,7 @@
         <file>assets/login_field.png</file>
         <file>assets/next_arrow.png</file>
         <file>assets/no.png</file>
+        <file>assets/pescar_avatar.png</file>
         <file>assets/presence_logo.png</file>
         <file>assets/prev_arrow.png</file>
         <file>assets/search.png</file>

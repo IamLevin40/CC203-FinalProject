@@ -35,10 +35,7 @@ namespace {
 #ifdef QT_MOC_HAS_STRINGDATA
 struct qt_meta_stringdata_CLASSSelect_ProfessionENDCLASS_t {};
 constexpr auto qt_meta_stringdata_CLASSSelect_ProfessionENDCLASS = QtMocHelpers::stringData(
-    "Select_Profession",
-    "on_studentButton_clicked",
-    "",
-    "on_lecturerButton_clicked"
+    "Select_Profession"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -51,20 +48,12 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSSelect_ProfessionENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       0,    0, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
        0,       // signalCount
-
- // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   26,    2, 0x08,    1 /* Private */,
-       3,    0,   27,    2, 0x08,    2 /* Private */,
-
- // slots: parameters
-    QMetaType::Void,
-    QMetaType::Void,
 
        0        // eod
 };
@@ -77,26 +66,16 @@ Q_CONSTINIT const QMetaObject Select_Profession::staticMetaObject = { {
     nullptr,
     qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSSelect_ProfessionENDCLASS_t,
         // Q_OBJECT / Q_GADGET
-        QtPrivate::TypeAndForceComplete<Select_Profession, std::true_type>,
-        // method 'on_studentButton_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_lecturerButton_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>
+        QtPrivate::TypeAndForceComplete<Select_Profession, std::true_type>
     >,
     nullptr
 } };
 
 void Select_Profession::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
-    if (_c == QMetaObject::InvokeMetaMethod) {
-        auto *_t = static_cast<Select_Profession *>(_o);
-        (void)_t;
-        switch (_id) {
-        case 0: _t->on_studentButton_clicked(); break;
-        case 1: _t->on_lecturerButton_clicked(); break;
-        default: ;
-        }
-    }
+    (void)_o;
+    (void)_id;
+    (void)_c;
     (void)_a;
 }
 
@@ -116,17 +95,6 @@ void *Select_Profession::qt_metacast(const char *_clname)
 int Select_Profession::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QMainWindow::qt_metacall(_c, _id, _a);
-    if (_id < 0)
-        return _id;
-    if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
-            qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
-    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 2)
-            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 2;
-    }
     return _id;
 }
 QT_WARNING_POP

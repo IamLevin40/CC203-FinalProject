@@ -1,3 +1,4 @@
+#include "global_main.h"
 #include "lecturer_attendance_list.h"
 #include "lecturer_attendance_scanner.h"
 #include "lecturer_classes_info.h"
@@ -16,5 +17,6 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     Select_Profession w;
     w.show();
+
     return a.exec();
 }

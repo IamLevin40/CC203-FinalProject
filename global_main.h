@@ -1,0 +1,118 @@
+#ifndef GLOBAL_MAIN_H
+#define GLOBAL_MAIN_H
+
+#include <QString>
+#include <QVector>
+#include <QPoint>
+#include <QList>
+#include <QStringList>
+#include <QTime>
+#include <QTimer>
+#include <QSettings>
+#include <QObject>
+#include <QLabel>
+#include <QComboBox>
+#include <QLineEdit>
+
+
+// Global variables
+extern QString $appCompany;
+extern QString $appName;
+
+extern short $studentIdLength;
+extern short $lecturerIdLength;
+extern short $pinLength;
+extern short $minPage;
+extern short $maxPage;
+extern short $dataLimitPerPage;
+
+
+// Global database
+extern QString $sql_Driver;
+extern QString $db_Hostname;
+extern QString $db_Username;
+extern QString $db_Password;
+extern QString $db_Database;
+extern int $db_Port;
+
+extern QString $logKey_studentId;
+extern QString $logKey_lecturerId;
+extern QStringList $selectKeys_classInfo;
+
+
+// Global colleges
+namespace Colleges
+{
+    // Define colleges
+    extern const QStringList $colleges;
+}
+
+
+// Global messages
+namespace Messages
+{
+    inline QString errorConnection() { return "No internet connection. Try again."; }
+
+    inline QString emptyStudentId() { return "Student number is required."; }
+    inline QString incompleteLengthStudentId() { return "Student number should be exactly 9 characters long."; }
+    inline QString invalidStudentId() { return "Student number is invalid."; }
+    inline QString notExistStudentId() { return "Student number does not exist."; }
+
+    inline QString emptyLecturerId() { return "Lecturer number is required."; }
+    inline QString incompleteLengthLecturerId() { return "Lecturer number should be exactly 4 characters long."; }
+    inline QString invalidLecturerId() { return "Lecturer number is invalid."; }
+    inline QString notExistLecturerId() { return "Lecturer number does not exist."; }
+
+    inline QString emptyPin() { return "Pin is required."; }
+    inline QString incompleteLengthPin() { return "Pin should be exactly 6 digits long"; }
+    inline QString invalidPin() { return "Pin is invalid. Must only consist digits."; }
+    inline QString incorrectPin() { return "Incorrect pin."; }
+
+    inline QString noSelectedCollege() { return "No selected college."; }
+    inline QString incorrectCollege() { return "Incorrect college."; }
+}
+
+
+// Global timer
+class GlobalTimer : public QObject
+{
+    Q_OBJECT
+
+    public:
+        static QTimer* timer();
+        static void displayTextForDuration(QObject* object, const QString& text, int duration);
+
+    private:
+        static QTimer* m_timer;
+};
+
+
+// Date and Time Utilities
+class DateTimeUtils
+{
+    public:
+        static void updateDateTimeUtils(QLabel *dateLabel, QLabel *timeLabel);
+};
+
+
+// Filtering manager
+class FilteringManager
+{
+    public:
+        static QString convertSchoolYear(const QString &schoolYear);
+        static void incrementPage(QObject *object, const int &index);
+        static void validatePageEdit(QObject *object);
+        static void checkComboboxIndex(QObject *object);
+};
+
+
+// Window position manager
+class WindowPositionManager
+{
+    public:
+        static QPoint loadWindowPosition();
+        static void saveWindowPosition(const QPoint &position);
+};
+
+
+#endif // GLOBAL_MAIN_H

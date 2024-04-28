@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Lecturer Classes Info</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/res/assets/presence_logo.png</normaloff>:/res/assets/presence_logo.png</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
     <string notr="true">QWidget #centralwidget {
@@ -149,7 +153,7 @@
 }</string>
      </property>
      <property name="text">
-      <string>Date&lt;?&gt;</string>
+      <string/>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -176,13 +180,13 @@
 }</string>
      </property>
      <property name="text">
-      <string>Time&lt;?&gt;</string>
+      <string/>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="avatarLabel">
+    <widget class="QLabel" name="headerAvatarLabel">
      <property name="geometry">
       <rect>
        <x>50</x>
@@ -505,7 +509,7 @@
      <property name="geometry">
       <rect>
        <x>25</x>
-       <y>90</y>
+       <y>100</y>
        <width>310</width>
        <height>3</height>
       </rect>
@@ -523,7 +527,7 @@
      <property name="geometry">
       <rect>
        <x>25</x>
-       <y>105</y>
+       <y>110</y>
        <width>310</width>
        <height>15</height>
       </rect>
@@ -550,7 +554,7 @@
      <property name="geometry">
       <rect>
        <x>25</x>
-       <y>125</y>
+       <y>130</y>
        <width>310</width>
        <height>15</height>
       </rect>
@@ -600,6 +604,33 @@
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
+    <widget class="QLabel" name="schoolYearLabel">
+     <property name="geometry">
+      <rect>
+       <x>25</x>
+       <y>75</y>
+       <width>310</width>
+       <height>15</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel {
+	color: #000F2A;
+	text-align: center;
+	font-family: Poppins;
+	font-size: 9px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+}</string>
+     </property>
+     <property name="text">
+      <string>SY&lt;?&gt; SEM&lt;?&gt;</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
    </widget>
    <widget class="QGroupBox" name="buttonsGroup">
     <property name="geometry">
@@ -607,7 +638,7 @@
       <x>0</x>
       <y>360</y>
       <width>360</width>
-      <height>190</height>
+      <height>221</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -674,33 +705,6 @@
      </property>
      <property name="text">
       <string>Take an attendance for this day.</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="attendanceDateLabel">
-     <property name="geometry">
-      <rect>
-       <x>25</x>
-       <y>75</y>
-       <width>310</width>
-       <height>15</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QLabel {
-	color: #616A7C;
-	text-align: center;
-	font-family: Poppins;
-	font-size: 9px;
-	font-style: normal;
-	font-weight: 500;
-	line-height: normal;
-}</string>
-     </property>
-     <property name="text">
-      <string>Date&lt;?&gt;</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -788,6 +792,36 @@
      </property>
      <property name="text">
       <string>students enrolled in this subject.</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="errorLabel">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>25</x>
+       <y>200</y>
+       <width>310</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel {
+	background: none;
+	color: #FF003D;
+	font-family: Poppins;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+}</string>
+     </property>
+     <property name="text">
+      <string/>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
