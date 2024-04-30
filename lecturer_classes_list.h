@@ -20,7 +20,7 @@
 
 // Forward declaration of class files
 class Lecturer_Login_Form;
-class Lecturer_Home;
+class Lecturer_Home_Qr;
 class Lecturer_Classes_Info;
 
 
@@ -46,17 +46,19 @@ class Lecturer_Classes_List : public QMainWindow
 
         // Reference the class files here
         Lecturer_Login_Form *lecturer_login_form;
-        Lecturer_Home *lecturer_home;
+        Lecturer_Home_Qr *lecturer_home_qr;
         Lecturer_Classes_Info *lecturer_classes_info;
 
         // All custom functions() should be recognized upon here
         void selectInfoFromDatabase(const QString &key_lecturerId);
         void displayInfoFromDatabase(const QStringList &dataList);
+
         void filterSearchCall();
         void selectDataFromDatabase(const int &pageNumber, const QString &lecturerId);
         void displayDataFromDatabase(const QList<QStringList> &dataList);
+
         void switchWindow_LecturerLoginForm();
-        void switchWindow_LecturerHome();
+        void switchWindow_LecturerHomeQr();
         void switchWindow_LecturerClassesInfo(const QStringList &keys_classInfo);
 };
 

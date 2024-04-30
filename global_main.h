@@ -8,6 +8,7 @@
 #include <QStringList>
 #include <QTime>
 #include <QTimer>
+#include <QRandomGenerator>
 #include <QSettings>
 #include <QObject>
 #include <QLabel>
@@ -22,6 +23,7 @@ extern QString $appName;
 extern short $studentIdLength;
 extern short $lecturerIdLength;
 extern short $pinLength;
+extern short $authCodeLength;
 extern short $minPage;
 extern short $maxPage;
 extern short $dataLimitPerPage;
@@ -73,6 +75,14 @@ namespace Messages
 }
 
 
+// Authentication code generator
+class Generator
+{
+    public:
+        static QString authCodeGenerator();
+};
+
+
 // Global timer
 class GlobalTimer : public QObject
 {
@@ -87,7 +97,7 @@ class GlobalTimer : public QObject
 };
 
 
-// Date and Time Utilities
+// Date and time utilities
 class DateTimeUtils
 {
     public:

@@ -8,9 +8,16 @@
 #include <QSqlQuery>
 #include <QSqlError>
 
+#include <QtCore>
+#include <QtGui>
+#include <QCamera>
+#include <QtWidgets>
+#include <QtMultimedia>
+#include <QtMultimediaWidgets>
+
 
 // Forward declaration of class files
-class Lecturer_Home;
+class Lecturer_Home_Qr;
 class Lecturer_Classes_List;
 class Lecturer_Attendance_List;
 
@@ -35,20 +42,25 @@ class Lecturer_Attendance_Scanner : public QMainWindow
         QSqlDatabase database;
 
         // Reference the class files here
-        Lecturer_Home *lecturer_home;
+        Lecturer_Home_Qr *lecturer_home_qr;
         Lecturer_Classes_List *lecturer_classes_list;
         Lecturer_Attendance_List *lecturer_attendance_list;
 
         // All custom functions() should be recognized upon here
         void selectInfoFromDatabase(const QStringList &keys_classInfo);
         void displayInfoFromDatabase(const QStringList &dataList);
-        void scanQrCall();
-        QString verifyQrCode(const QString &qrData);
-        void selectDataFromDatabase(const QString &qrData);
+
+        void setCameraScanner();
+        void captureQrCall();
+
+        void decodeQrCall();
+        QString verifyQrCode(const QString &studentId, const QString &lastName, const QString &college);
         void displayDataFromDatabase(const QStringList &dataList);
+
         void takeAttendanceCall();
         void updateDataFromDatabase(const QStringList &keys_classInfo, const QStringList &dataList);
-        void switchWindow_LecturerHome();
+
+        void switchWindow_LecturerHomeQr();
         void switchWindow_LecturerClassesList();
         void switchWindow_LecturerAttendanceList();
 };

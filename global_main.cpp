@@ -8,6 +8,7 @@ QString $appName = "Presence";
 short $studentIdLength = 9;
 short $lecturerIdLength = 4;
 short $pinLength = 6;
+short $authCodeLength = 6;
 short $minPage = 1;
 short $maxPage = 999;
 short $dataLimitPerPage = 5;
@@ -42,6 +43,21 @@ namespace Colleges
         "CON | College of Nursing",
         "PESCAR | College of Physical Education, Sports, Culture, Arts, and Recreation"
     };
+}
+
+
+// Generate authentication code
+QString Generator::authCodeGenerator()
+{
+    QString code;
+    const QString possibleCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+    for (int i = 0; i < $authCodeLength; ++i) {
+        int index = QRandomGenerator::global()->bounded(possibleCharacters.length());
+        code.append(possibleCharacters.at(index));
+    }
+
+    return code;
 }
 
 

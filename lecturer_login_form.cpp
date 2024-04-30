@@ -6,7 +6,7 @@
 
 // Include header files for forward declaration
 #include "select_profession.h"
-#include "lecturer_home.h"
+#include "lecturer_home_qr.h"
 
 
 Lecturer_Login_Form::Lecturer_Login_Form(QWidget *parent)
@@ -64,7 +64,8 @@ void Lecturer_Login_Form::loginCall()
         return;
     }
 
-    Lecturer_Login_Form::switchWindow_LecturerHome(lecturerId);
+    Lecturer_Login_Form::updateAuthCode(lecturerId);
+    Lecturer_Login_Form::switchWindow_LecturerHomeQr(lecturerId);
 }
 
 
@@ -139,6 +140,71 @@ QString Lecturer_Login_Form::authenticateLecturer(const QString &lecturerId, con
 }
 
 
+void Lecturer_Login_Form::updateAuthCode(const QString &lecturerId)
+{
+    // Return error if unable to access the database
+    if (!database.open())
+    {
+        GlobalTimer::displayTextForDuration(ui->errorLabel, Messages::errorConnection(), 5000);
+        return;
+    }
+
+    // Set up queries for database
+    QSqlDatabase::database().transaction();
+    QSqlQuery query(database);
+
+
+    QString authCode;
+    bool isAuthCodeExist = true;
+
+    // Check if authCode already exists, otherwise update authCode to the database
+    while (isAuthCodeExist)
+    {
+        // Generate authentication code
+        authCode = Generator::authCodeGenerator();
+
+        // Prepare sql command for finding existing data
+        query.prepare("SELECT COUNT(*) FROM LecturerInfo WHERE AuthCode = :authCode");
+
+        // Bind values to the query
+        query.bindValue(":authCode", authCode);
+
+        // Return error if unable to select data
+        if (!query.exec())
+        {
+            QSqlDatabase::database().rollback();
+            GlobalTimer::displayTextForDuration(ui->errorLabel, Messages::errorConnection(), 5000);
+            return;
+        }
+
+        query.next();
+        int count = query.value(0).toInt();
+        isAuthCodeExist = count > 0;
+    }
+
+    // Prepare sql command for updating data
+    query.prepare("UPDATE LecturerInfo SET \
+                  AuthCode = :authCode \
+                  WHERE LecturerId = :lecturerId");
+
+    // Bind values to the query
+    query.bindValue(":authCode", authCode);
+    query.bindValue(":lecturerId", lecturerId);
+
+    // Return error if unable to update data
+    if (!query.exec())
+    {
+        QSqlDatabase::database().rollback();
+        GlobalTimer::displayTextForDuration(ui->errorLabel, Messages::errorConnection(), 5000);
+        return;
+    }
+
+    // Close the database after using
+    QSqlDatabase::database().commit();
+    database.close();
+}
+
+
 void Lecturer_Login_Form::populateCombobox()
 {
     // Populate comboboxes with items
@@ -158,14 +224,14 @@ void Lecturer_Login_Form::switchWindow_SelectProfession()
 }
 
 
-void Lecturer_Login_Form::switchWindow_LecturerHome(const QString &lecturerId)
+void Lecturer_Login_Form::switchWindow_LecturerHomeQr(const QString &lecturerId)
 {
     // Set primary key for logged-in lecturer id
     $logKey_lecturerId = lecturerId;
 
     // Switch ui window to Lecturer_Home
-    lecturer_home = new Lecturer_Home;
-    lecturer_home->show();
+    lecturer_home_qr = new Lecturer_Home_Qr;
+    lecturer_home_qr->show();
     this->hide();
 }
 

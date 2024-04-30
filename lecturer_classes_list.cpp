@@ -6,7 +6,7 @@
 
 // Include header files for forward declaration
 #include "lecturer_login_form.h"
-#include "lecturer_home.h"
+#include "lecturer_home_qr.h"
 #include "lecturer_classes_info.h"
 
 
@@ -37,7 +37,7 @@ Lecturer_Classes_List::Lecturer_Classes_List(QWidget *parent)
     });
 
     connect(ui->backButton, &QPushButton::clicked, this, &Lecturer_Classes_List::switchWindow_LecturerLoginForm);
-    connect(ui->homeButton, &QPushButton::clicked, this, &Lecturer_Classes_List::switchWindow_LecturerHome);
+    connect(ui->homeButton, &QPushButton::clicked, this, &Lecturer_Classes_List::switchWindow_LecturerHomeQr);
 
     // Load window position
     QPoint windowPos = WindowPositionManager::loadWindowPosition();
@@ -295,11 +295,11 @@ void Lecturer_Classes_List::switchWindow_LecturerLoginForm()
 }
 
 
-void Lecturer_Classes_List::switchWindow_LecturerHome()
+void Lecturer_Classes_List::switchWindow_LecturerHomeQr()
 {
-    // Switch ui window to Lecturer_Home
-    lecturer_home = new Lecturer_Home;
-    lecturer_home->show();
+    // Switch ui window to Lecturer_Home_Qr
+    lecturer_home_qr = new Lecturer_Home_Qr;
+    lecturer_home_qr->show();
     this->hide();
 }
 

@@ -5,7 +5,7 @@
 
 
 // Include header files for forward declaration
-#include "lecturer_home.h"
+#include "lecturer_home_qr.h"
 #include "lecturer_classes_list.h"
 #include "lecturer_attendance_list.h"
 #include "lecturer_student_record.h"
@@ -32,7 +32,7 @@ Lecturer_Classes_Info::Lecturer_Classes_Info(QWidget *parent)
 
     // Connect ui objects to functions based on user interaction
     connect(ui->backButton, &QPushButton::clicked, this, &Lecturer_Classes_Info::switchWindow_LecturerClassesList);
-    connect(ui->homeButton, &QPushButton::clicked, this, &Lecturer_Classes_Info::switchWindow_LecturerHome);
+    connect(ui->homeButton, &QPushButton::clicked, this, &Lecturer_Classes_Info::switchWindow_LecturerHomeQr);
     connect(ui->classListButton, &QPushButton::clicked, this, &Lecturer_Classes_Info::switchWindow_LecturerClassesList);
     connect(ui->attendanceButton, &QPushButton::clicked, this, &Lecturer_Classes_Info::switchWindow_LecturerAttendanceList);
     connect(ui->studentRecordButton, &QPushButton::clicked, this, &Lecturer_Classes_Info::switchWindow_LecturerStudentRecord);
@@ -204,11 +204,11 @@ void Lecturer_Classes_Info::displayDataFromDatabase(const QStringList &dataList)
 }
 
 
-void Lecturer_Classes_Info::switchWindow_LecturerHome()
+void Lecturer_Classes_Info::switchWindow_LecturerHomeQr()
 {
-    // Switch ui window to Lecturer_Home
-    lecturer_home = new Lecturer_Home;
-    lecturer_home->show();
+    // Switch ui window to Lecturer_Home_Qr
+    lecturer_home_qr = new Lecturer_Home_Qr;
+    lecturer_home_qr->show();
     this->hide();
 }
 

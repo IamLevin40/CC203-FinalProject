@@ -5,7 +5,7 @@
 
 
 // Include header files for forward declaration
-#include "lecturer_home.h"
+#include "lecturer_home_qr.h"
 #include "lecturer_classes_list.h"
 #include "lecturer_classes_info.h"
 #include "lecturer_attendance_scanner.h"
@@ -38,7 +38,7 @@ Lecturer_Attendance_List::Lecturer_Attendance_List(QWidget *parent)
     });
 
     connect(ui->backButton, &QPushButton::clicked, this, &Lecturer_Attendance_List::switchWindow_LecturerClassesInfo);
-    connect(ui->homeButton, &QPushButton::clicked, this, &Lecturer_Attendance_List::switchWindow_LecturerHome);
+    connect(ui->homeButton, &QPushButton::clicked, this, &Lecturer_Attendance_List::switchWindow_LecturerHomeQr);
     connect(ui->classListButton, &QPushButton::clicked, this, &Lecturer_Attendance_List::switchWindow_LecturerClassesList);
     connect(ui->takeAttendanceButton, &QPushButton::clicked, this, &Lecturer_Attendance_List::switchWindow_LecturerAttendanceScanner);
 
@@ -360,11 +360,11 @@ void Lecturer_Attendance_List::displayDataFromDatabase(const QList<QStringList> 
 }
 
 
-void Lecturer_Attendance_List::switchWindow_LecturerHome()
+void Lecturer_Attendance_List::switchWindow_LecturerHomeQr()
 {
-    // Switch ui window to Lecturer_Home
-    lecturer_home = new Lecturer_Home;
-    lecturer_home->show();
+    // Switch ui window to Lecturer_Home_Qr
+    lecturer_home_qr = new Lecturer_Home_Qr;
+    lecturer_home_qr->show();
     this->hide();
 }
 

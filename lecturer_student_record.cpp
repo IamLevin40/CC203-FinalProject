@@ -5,7 +5,7 @@
 
 
 // Include header files for forward declaration
-#include "lecturer_home.h"
+#include "lecturer_home_qr.h"
 #include "lecturer_classes_list.h"
 #include "lecturer_classes_info.h"
 
@@ -37,7 +37,7 @@ Lecturer_Student_Record::Lecturer_Student_Record(QWidget *parent)
     });
 
     connect(ui->backButton, &QPushButton::clicked, this, &Lecturer_Student_Record::switchWindow_LecturerClassesInfo);
-    connect(ui->homeButton, &QPushButton::clicked, this, &Lecturer_Student_Record::switchWindow_LecturerHome);
+    connect(ui->homeButton, &QPushButton::clicked, this, &Lecturer_Student_Record::switchWindow_LecturerHomeQr);
     connect(ui->classListButton, &QPushButton::clicked, this, &Lecturer_Student_Record::switchWindow_LecturerClassesList);
 
     // Load window position
@@ -355,11 +355,11 @@ void Lecturer_Student_Record::displayDataFromDatabase(const QList<QStringList> &
 }
 
 
-void Lecturer_Student_Record::switchWindow_LecturerHome()
+void Lecturer_Student_Record::switchWindow_LecturerHomeQr()
 {
     // Switch ui window to Lecturer_Home
-    lecturer_home = new Lecturer_Home;
-    lecturer_home->show();
+    lecturer_home_qr = new Lecturer_Home_Qr;
+    lecturer_home_qr->show();
     this->hide();
 }
 

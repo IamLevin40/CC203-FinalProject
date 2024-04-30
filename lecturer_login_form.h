@@ -11,7 +11,7 @@
 
 // Forward declaration of class files
 class Select_Profession;
-class Lecturer_Home;
+class Lecturer_Home_Qr;
 
 
 namespace Ui {
@@ -35,14 +35,17 @@ class Lecturer_Login_Form : public QMainWindow
 
         // Reference the class files here
         Select_Profession *select_profession;
-        Lecturer_Home *lecturer_home;
+        Lecturer_Home_Qr *lecturer_home_qr;
 
         // All custom functions() should be recognized upon here
         void loginCall();
         QString authenticateLecturer(const QString &lecturerId, const QString &pin, const QString college);
+        void updateAuthCode(const QString &lecturerId);
+
         void populateCombobox();
+
         void switchWindow_SelectProfession();
-        void switchWindow_LecturerHome(const QString &lecturerId);
+        void switchWindow_LecturerHomeQr(const QString &lecturerId);
 };
 
 #endif // LECTURER_LOGIN_FORM_H

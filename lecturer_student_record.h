@@ -19,7 +19,7 @@
 
 
 // Forward declaration of class files
-class Lecturer_Home;
+class Lecturer_Home_Qr;
 class Lecturer_Classes_List;
 class Lecturer_Classes_Info;
 
@@ -45,17 +45,19 @@ class Lecturer_Student_Record : public QMainWindow
         QList<QGroupBox*> groupBoxList;
 
         // Reference the class files here
-        Lecturer_Home *lecturer_home;
+        Lecturer_Home_Qr *lecturer_home_qr;
         Lecturer_Classes_List *lecturer_classes_list;
         Lecturer_Classes_Info *lecturer_classes_info;
 
         // All custom functions() should be recognized upon here
         void selectInfoFromDatabase(const QStringList &keys_classInfo);
         void displayInfoFromDatabase(const QStringList &dataList);
+
         void filterSearchCall();
         void selectDataFromDatabase(const int &pageNumber, const QStringList &keys_classInfo);
         void displayDataFromDatabase(const QList<QStringList> &dataList, const QList<QStringList> &recordList);
-        void switchWindow_LecturerHome();
+
+        void switchWindow_LecturerHomeQr();
         void switchWindow_LecturerClassesList();
         void switchWindow_LecturerClassesInfo();
 };

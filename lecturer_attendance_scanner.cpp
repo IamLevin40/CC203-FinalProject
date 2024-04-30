@@ -5,7 +5,7 @@
 
 
 // Include header files for forward declaration
-#include "lecturer_home.h"
+#include "lecturer_home_qr.h"
 #include "lecturer_classes_list.h"
 #include "lecturer_attendance_list.h"
 
@@ -26,14 +26,14 @@ Lecturer_Attendance_Scanner::Lecturer_Attendance_Scanner(QWidget *parent)
 
     // Initiate functions on awake
     Lecturer_Attendance_Scanner::selectInfoFromDatabase($selectKeys_classInfo);
-    Lecturer_Attendance_Scanner::scanQrCall();
+    Lecturer_Attendance_Scanner::setCameraScanner();
 
     // Connect ui objects to functions based on user interaction
     connect(ui->confirmButton, &QPushButton::clicked, this, &Lecturer_Attendance_Scanner::takeAttendanceCall);
     ui->confirmButton->setEnabled(false);
 
     connect(ui->backButton, &QPushButton::clicked, this, &Lecturer_Attendance_Scanner::switchWindow_LecturerAttendanceList);
-    connect(ui->homeButton, &QPushButton::clicked, this, &Lecturer_Attendance_Scanner::switchWindow_LecturerHome);
+    connect(ui->homeButton, &QPushButton::clicked, this, &Lecturer_Attendance_Scanner::switchWindow_LecturerHomeQr);
     connect(ui->classListButton, &QPushButton::clicked, this, &Lecturer_Attendance_Scanner::switchWindow_LecturerClassesList);
 
     // Load window position
@@ -129,19 +129,25 @@ void Lecturer_Attendance_Scanner::displayInfoFromDatabase(const QStringList &dat
 }
 
 
-void Lecturer_Attendance_Scanner::scanQrCall()
+void Lecturer_Attendance_Scanner::setCameraScanner()
 {
 
 }
 
 
-QString Lecturer_Attendance_Scanner::verifyQrCode(const QString &qrData)
+void Lecturer_Attendance_Scanner::captureQrCall()
 {
 
 }
 
 
-void Lecturer_Attendance_Scanner::selectDataFromDatabase(const QString &qrData)
+void Lecturer_Attendance_Scanner::decodeQrCall()
+{
+
+}
+
+
+QString Lecturer_Attendance_Scanner::verifyQrCode(const QString &studentId, const QString &lastName, const QString &college)
 {
 
 }
@@ -165,11 +171,11 @@ void Lecturer_Attendance_Scanner::updateDataFromDatabase(const QStringList &keys
 }
 
 
-void Lecturer_Attendance_Scanner::switchWindow_LecturerHome()
+void Lecturer_Attendance_Scanner::switchWindow_LecturerHomeQr()
 {
-    // Switch ui window to Lecturer_Home
-    lecturer_home = new Lecturer_Home;
-    lecturer_home->show();
+    // Switch ui window to Lecturer_Home_Qr
+    lecturer_home_qr = new Lecturer_Home_Qr;
+    lecturer_home_qr->show();
     this->hide();
 }
 

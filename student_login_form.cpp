@@ -6,7 +6,7 @@
 
 // Include header files for forward declaration
 #include "select_profession.h"
-#include "student_home.h"
+#include "student_home_qr.h"
 
 
 Student_Login_Form::Student_Login_Form(QWidget *parent)
@@ -64,7 +64,8 @@ void Student_Login_Form::loginCall()
         return;
     }
 
-    Student_Login_Form::switchWindow_StudentHome(studentId);
+    Student_Login_Form::updateAuthCode(studentId);
+    Student_Login_Form::switchWindow_StudentHomeQr(studentId);
 }
 
 
@@ -139,6 +140,72 @@ QString Student_Login_Form::authenticateStudent(const QString &studentId, const 
 }
 
 
+void Student_Login_Form::updateAuthCode(const QString &studentId)
+{
+    // Return error if unable to access the database
+    if (!database.open())
+    {
+        GlobalTimer::displayTextForDuration(ui->errorLabel, Messages::errorConnection(), 5000);
+        return;
+    }
+
+    // Set up queries for database
+    QSqlDatabase::database().transaction();
+    QSqlQuery query(database);
+
+
+    QString authCode;
+    bool isAuthCodeExist = true;
+
+    // Check if authCode already exists, otherwise update authCode to the database
+    while (isAuthCodeExist)
+    {
+        // Generate authentication code
+        authCode = Generator::authCodeGenerator();
+
+        // Prepare sql command for finding existing data
+        query.prepare("SELECT COUNT(*) FROM StudentInfo WHERE AuthCode = :authCode");
+
+        // Bind values to the query
+        query.bindValue(":authCode", authCode);
+
+        // Return error if unable to select data
+        if (!query.exec())
+        {
+            QSqlDatabase::database().rollback();
+            GlobalTimer::displayTextForDuration(ui->errorLabel, Messages::errorConnection(), 5000);
+            return;
+        }
+
+        query.next();
+        int count = query.value(0).toInt();
+        isAuthCodeExist = count > 0;
+    }
+
+
+    // Prepare sql command for updating data
+    query.prepare("UPDATE StudentInfo SET \
+                  AuthCode = :authCode \
+                  WHERE StudentId = :studentId");
+
+    // Bind values to the query
+    query.bindValue(":authCode", authCode);
+    query.bindValue(":studentId", studentId);
+
+    // Return error if unable to update data
+    if (!query.exec())
+    {
+        QSqlDatabase::database().rollback();
+        GlobalTimer::displayTextForDuration(ui->errorLabel, Messages::errorConnection(), 5000);
+        return;
+    }
+
+    // Close the database after using
+    QSqlDatabase::database().commit();
+    database.close();
+}
+
+
 void Student_Login_Form::populateCombobox()
 {
     // Populate comboboxes with items
@@ -158,14 +225,14 @@ void Student_Login_Form::switchWindow_SelectProfession()
 }
 
 
-void Student_Login_Form::switchWindow_StudentHome(const QString &studentId)
+void Student_Login_Form::switchWindow_StudentHomeQr(const QString &studentId)
 {
     // Set primary key for logged-in student id
     $logKey_studentId = studentId;
 
-    // Switch ui window to Student_Home
-    student_home = new Student_Home;
-    student_home->show();
+    // Switch ui window to Student_Home_Qr
+    student_home_qr = new Student_Home_Qr;
+    student_home_qr->show();
     this->hide();
 }
 
