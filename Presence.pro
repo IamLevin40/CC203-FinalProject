@@ -1,9 +1,9 @@
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-QT += core gui sql multimedia multimediawidgets
+QT += core gui sql axcontainer multimedia multimediawidgets
 CONFIG += c++17
 
-include(Qt-QrCodeGenerator-main/Qt-QrCodeGenerator.pri)
+include(QtQrCodeGenerator/QtQrCodeGenerator.pri)
 LIBS += -L../qzxing
 
 

@@ -30,6 +30,7 @@ Lecturer_Student_Record::Lecturer_Student_Record(QWidget *parent)
     DateTimeUtils::updateDateTimeUtils(ui->dateLabel, ui->timeLabel);
 
     // Connect ui objects to functions based on user interaction
+    connect(ui->downloadButton, &QPushButton::clicked, this, [=](){ Lecturer_Student_Record::createExcelFile($selectKeys_classInfo); });
     connect(ui->prevPageButton, &QPushButton::clicked, this, [=](){ FilteringManager::incrementPage(ui->numberPageTextbox, -1); });
     connect(ui->nextPageButton, &QPushButton::clicked, this, [=](){ FilteringManager::incrementPage(ui->numberPageTextbox, 1); });
     connect(ui->numberPageTextbox, &QLineEdit::textChanged, this, [=](){
@@ -167,13 +168,17 @@ void Lecturer_Student_Record::selectEnlistedStudents(const int &pageNumber, cons
     int offset = (pageNumber - 1) * $dataLimitPerPage;
 
     // Set up data list and queries for database
-    QList<QStringList> studentRecordList;
     QList<QStringList> studentDataList;
     QSqlDatabase::database().transaction();
     QSqlQuery query(database);
 
     // Prepare sql command for selecting data
-    query.prepare("SELECT * FROM " + tableName + " LIMIT :limit OFFSET :offset");
+    query.prepare(QString("SELECT %1.StudentId, %1.PresentCount, %1.AbsentCount, \
+                        %2.LastName, %2.FirstName, %2.College, %2.Program, \
+                        %2.Year, %2.Section, %2.IsRegular \
+                        FROM %1 INNER JOIN %2 ON %1.StudentId = %2.StudentId \
+                        ORDER BY %2.LastName, %2.FirstName ASC \
+                        LIMIT :limit OFFSET :offset").arg(tableName, "StudentInfo"));
 
     // Bind values to the query
     query.bindValue(":limit", $dataLimitPerPage);
@@ -195,61 +200,29 @@ void Lecturer_Student_Record::selectEnlistedStudents(const int &pageNumber, cons
             rowData << query.value(0).toString();   // StudentId
             rowData << query.value(1).toString();   // PresentCount
             rowData << query.value(2).toString();   // AbsentCount
-
-            studentRecordList.append(rowData);
-        }
-    }
-    query.clear();
-
-    for (const auto &student : studentRecordList)
-    {
-        QString studentId = student[0];
-
-        // Prepare sql command for selecting data
-        query.prepare("SELECT * FROM StudentInfo WHERE StudentId = :studentId");
-
-        // Bind values to the query
-        query.bindValue(":studentId", studentId);
-
-        // Return error if unable to select data
-        if (!query.exec())
-        {
-            QSqlDatabase::database().rollback();
-            GlobalTimer::displayTextForDuration(ui->errorLabel, Messages::errorConnection(), 5000);
-            return;
-        }
-        else
-        {
-            // Fetch and store the result rows
-            query.next();
-
-            QStringList rowData;
-            rowData << query.value(0).toString();   // StudentId
-            rowData << query.value(1).toString();   // Pin
-            rowData << query.value(2).toString();   // LastName
-            rowData << query.value(3).toString();   // FirstName
-            rowData << query.value(4).toString();   // College
-            rowData << query.value(5).toString();   // Program
-            rowData << query.value(6).toString();   // Year
-            rowData << query.value(7).toString();   // Section
-            rowData << query.value(8).toString();   // IsRegular
+            rowData << query.value(3).toString();   // LastName
+            rowData << query.value(4).toString();   // FirstName
+            rowData << query.value(5).toString();   // College
+            rowData << query.value(6).toString();   // Program
+            rowData << query.value(7).toString();   // Year
+            rowData << query.value(8).toString();   // Section
+            rowData << query.value(9).toString();   // IsRegular
 
             studentDataList.append(rowData);
         }
-
-        query.clear();
     }
+
 
     // Close the database after using
     QSqlDatabase::database().commit();
     database.close();
 
     // Proceed to display data list
-    Lecturer_Student_Record::displayEnlistedStudents(studentDataList, studentRecordList);
+    Lecturer_Student_Record::displayEnlistedStudents(studentDataList);
 }
 
 
-void Lecturer_Student_Record::displayEnlistedStudents(const QList<QStringList> &dataList, const QList<QStringList> &recordList)
+void Lecturer_Student_Record::displayEnlistedStudents(const QList<QStringList> &dataList)
 {
     // Clear existing QGroupBox objects
     qDeleteAll(groupBoxList);
@@ -259,24 +232,19 @@ void Lecturer_Student_Record::displayEnlistedStudents(const QList<QStringList> &
     int posY = 0;
 
     // Create objects and add data groups
-    int sizeList = recordList.size();
-    for (int i = 0; i < sizeList; i++)
+    for (const auto &data : dataList)
     {
         // Assign members from dataList to variables
-        const QStringList &data = dataList.at(i);
-        const QStringList &record = recordList.at(i);
-
-        QString studentId = record.at(0);
-        QString presentCount = record.at(1);
-        QString absentCount = record.at(2);
-
-        QString lastName = data.at(2);
-        QString firstName = data.at(3);
-        QString college = data.at(4);
-        QString program = data.at(5);
-        QString year = data.at(6);
-        QString section = data.at(7);
-        QString isRegular = data.at(8);
+        QString studentId = data[0];
+        QString presentCount = data[1];
+        QString absentCount = data[2];
+        QString lastName = data[3];
+        QString firstName = data[4];
+        QString college = data[5];
+        QString program = data[6];
+        QString year = data[7];
+        QString section = data[8];
+        QString isRegular = data[9];
 
         // Create data group box
         QGroupBox *dataGroup = new QGroupBox(ui->studentsListArea);
@@ -351,6 +319,153 @@ void Lecturer_Student_Record::displayEnlistedStudents(const QList<QStringList> &
         posY += dataGroup->height() + 5;
         dataGroup->setVisible(true);
         dataGroup->raise();
+    }
+}
+
+
+void Lecturer_Student_Record::createExcelFile(const QStringList &keys_classInfo)
+{
+    // Return error if unable to access the database
+    if (!database.open())
+    {
+        GlobalTimer::displayTextForDuration(ui->errorLabel, Messages::unableCreateDataSheet(), 5000);
+        return;
+    }
+
+    // Get data from select key
+    QString key_subjectCode = keys_classInfo[0];
+    QString key_program = keys_classInfo[1];
+    QString key_year = keys_classInfo[2];
+    QString key_section = keys_classInfo[3];
+    QString key_semester = keys_classInfo[4];
+    QString key_schoolYear = keys_classInfo[5];
+
+    QString tableName = QString("%1%2%3%4_S%5SY%6").arg(key_subjectCode, key_program, key_year, key_section, key_semester, StringManipulator::convertSchoolYear(key_schoolYear));
+
+    // Set up data list and queries for database
+    QList<QStringList> studentDataList;
+    QSqlDatabase::database().transaction();
+    QSqlQuery query(database);
+
+
+    // Prepare sql command for selecting data
+    query.prepare(QString("SELECT %1.StudentId, %2.LastName, %2.FirstName, \
+                        %1.PresentCount, %1.AbsentCount \
+                        FROM %1 INNER JOIN %2 ON %1.StudentId = %2.StudentId \
+                        ORDER BY %2.LastName, %2.FirstName ASC").arg(tableName, "StudentInfo"));
+
+    // Return error if unable to select data
+    if (!query.exec())
+    {
+        QSqlDatabase::database().rollback();
+        GlobalTimer::displayTextForDuration(ui->errorLabel, Messages::unableCreateDataSheet(), 5000);
+        return;
+    }
+    else
+    {
+        // Fetch and store the result rows
+        while (query.next())
+        {
+            QStringList rowData;
+            rowData << query.value(0).toString();   // StudentId
+            rowData << query.value(1).toString();   // LastName
+            rowData << query.value(2).toString();   // FirstName
+            rowData << query.value(3).toString();   // PresentCount
+            rowData << query.value(4).toString();   // AbsentCount
+
+            studentDataList.append(rowData);
+        }
+    }
+
+    // Close the database after using
+    QSqlDatabase::database().commit();
+    database.close();
+
+
+    // Set up excel file object
+    QString fileName = tableName;
+    QStringList columnNames = {"StudentId", "LastName", "FirstName", "P", "A"};
+
+    QAxObject excel("Excel.Application");
+
+    // Ensure excel is created successfully
+    if (!excel.isNull())
+    {
+        excel.setProperty("Visible", false);
+
+        QAxObject *workbooks = excel.querySubObject("Workbooks"); // Get the Workbooks collection
+        if (workbooks)
+        {
+            QAxObject *workbook = workbooks->querySubObject("Add"); // Add a new workbook
+            if (workbook)
+            {
+                QAxObject *worksheets = workbook->querySubObject("Worksheets"); // Get the Worksheets collection
+                if (worksheets)
+                {
+                    QAxObject *worksheet = worksheets->querySubObject("Item(int)", 1); // Get the first worksheet
+                    if (worksheet)
+                    {
+                        // Set column names starting from B2
+                        for (int i = 0; i < columnNames.size(); ++i) {
+                            QAxObject *cell = worksheet->querySubObject("Cells(int,int)", 2, i + 2);
+                            if (cell) {
+                                cell->setProperty("Value", columnNames.at(i));
+
+                                // Set text to bold
+                                QAxObject *font = cell->querySubObject("Font");
+                                if (font) {
+                                    font->setProperty("Bold", true);
+                                    delete font;
+                                }
+
+                                // Set alignment to center
+                                cell->setProperty("HorizontalAlignment", -4108);
+
+                                delete cell;
+                            }
+                        }
+
+                        // Set row data starting from B4
+                        for (int row = 0; row < studentDataList.size(); ++row) {
+                            const QStringList &rowValues = studentDataList.at(row);
+                            for (int col = 0; col < rowValues.size(); ++col) {
+                                QAxObject *cell = worksheet->querySubObject("Cells(int,int)", row + 4, col + 2);
+                                if (cell) {
+                                    cell->setProperty("Value", rowValues.at(col));
+                                    delete cell;
+                                }
+                            }
+                        }
+
+                        // Set column widths based on the maximum length of the data in each column
+                        for (int col = 0; col < columnNames.size(); ++col) {
+                            int maxLength = 0;
+                            for (const QStringList &rowData : studentDataList) {
+                                if (col < rowData.size()) {
+                                    maxLength = qMax(maxLength, static_cast<int>(rowData.at(col).length()));
+                                }
+                            }
+                            // Set the width of the column to accommodate the maximum length of data
+                            QAxObject *range = worksheet->querySubObject("Columns(int)", col + 2);
+                            if (range) {
+                                range->setProperty("ColumnWidth", maxLength + 5);  // Add extra padding
+                                delete range;
+                            }
+                        }
+
+                        // Save the Excel file
+                        workbook->dynamicCall("SaveAs(const QString&)", QDir::toNativeSeparators(fileName));
+                        workbook->dynamicCall("Close()");
+                        delete worksheet;
+                    }
+                    delete worksheets;
+                }
+                delete workbook;
+            }
+            delete workbooks;
+        }
+
+        excel.dynamicCall("Quit()"); // Quit Excel application
     }
 }
 

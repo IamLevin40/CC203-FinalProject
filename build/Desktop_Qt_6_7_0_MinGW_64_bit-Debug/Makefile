@@ -83,6 +83,13 @@ Makefile: ../../Presence.pro C:/Qt/6.7.0/mingw_64/mkspecs/win32-g++/qmake.conf C
 		C:/Qt/6.7.0/mingw_64/mkspecs/modules/qt_ext_freetype.pri \
 		C:/Qt/6.7.0/mingw_64/mkspecs/modules/qt_ext_libjpeg.pri \
 		C:/Qt/6.7.0/mingw_64/mkspecs/modules/qt_ext_libpng.pri \
+		C:/Qt/6.7.0/mingw_64/mkspecs/modules/qt_lib_activeqt.pri \
+		C:/Qt/6.7.0/mingw_64/mkspecs/modules/qt_lib_activeqt_private.pri \
+		C:/Qt/6.7.0/mingw_64/mkspecs/modules/qt_lib_axbase_private.pri \
+		C:/Qt/6.7.0/mingw_64/mkspecs/modules/qt_lib_axcontainer.pri \
+		C:/Qt/6.7.0/mingw_64/mkspecs/modules/qt_lib_axcontainer_private.pri \
+		C:/Qt/6.7.0/mingw_64/mkspecs/modules/qt_lib_axserver.pri \
+		C:/Qt/6.7.0/mingw_64/mkspecs/modules/qt_lib_axserver_private.pri \
 		C:/Qt/6.7.0/mingw_64/mkspecs/modules/qt_lib_charts.pri \
 		C:/Qt/6.7.0/mingw_64/mkspecs/modules/qt_lib_charts_private.pri \
 		C:/Qt/6.7.0/mingw_64/mkspecs/modules/qt_lib_chartsqml.pri \
@@ -268,7 +275,7 @@ Makefile: ../../Presence.pro C:/Qt/6.7.0/mingw_64/mkspecs/win32-g++/qmake.conf C
 		C:/Qt/6.7.0/mingw_64/mkspecs/features/toolchain.prf \
 		C:/Qt/6.7.0/mingw_64/mkspecs/features/default_pre.prf \
 		C:/Qt/6.7.0/mingw_64/mkspecs/features/win32/default_pre.prf \
-		../../Qt-QrCodeGenerator-main/Qt-QrCodeGenerator.pri \
+		../../QtQrCodeGenerator/QtQrCodeGenerator.pri \
 		C:/Qt/6.7.0/mingw_64/mkspecs/features/resolve_config.prf \
 		C:/Qt/6.7.0/mingw_64/mkspecs/features/exclusive_builds_post.prf \
 		C:/Qt/6.7.0/mingw_64/mkspecs/features/default_post.prf \
@@ -282,6 +289,7 @@ Makefile: ../../Presence.pro C:/Qt/6.7.0/mingw_64/mkspecs/win32-g++/qmake.conf C
 		C:/Qt/6.7.0/mingw_64/mkspecs/features/moc.prf \
 		C:/Qt/6.7.0/mingw_64/mkspecs/features/win32/opengl.prf \
 		C:/Qt/6.7.0/mingw_64/mkspecs/features/uic.prf \
+		C:/Qt/6.7.0/mingw_64/mkspecs/features/win32/dumpcpp.prf \
 		C:/Qt/6.7.0/mingw_64/mkspecs/features/qmake_use.prf \
 		C:/Qt/6.7.0/mingw_64/mkspecs/features/file_copies.prf \
 		C:/Qt/6.7.0/mingw_64/mkspecs/features/win32/windows.prf \
@@ -290,6 +298,7 @@ Makefile: ../../Presence.pro C:/Qt/6.7.0/mingw_64/mkspecs/win32-g++/qmake.conf C
 		C:/Qt/6.7.0/mingw_64/mkspecs/features/yacc.prf \
 		C:/Qt/6.7.0/mingw_64/mkspecs/features/lex.prf \
 		../../Presence.pro \
+		C:/Qt/6.7.0/mingw_64/lib/Qt6AxContainer.prl \
 		C:/Qt/6.7.0/mingw_64/lib/Qt6MultimediaWidgets.prl \
 		C:/Qt/6.7.0/mingw_64/lib/Qt6Widgets.prl \
 		C:/Qt/6.7.0/mingw_64/lib/Qt6Multimedia.prl \
@@ -315,6 +324,13 @@ C:/Qt/6.7.0/mingw_64/mkspecs/qconfig.pri:
 C:/Qt/6.7.0/mingw_64/mkspecs/modules/qt_ext_freetype.pri:
 C:/Qt/6.7.0/mingw_64/mkspecs/modules/qt_ext_libjpeg.pri:
 C:/Qt/6.7.0/mingw_64/mkspecs/modules/qt_ext_libpng.pri:
+C:/Qt/6.7.0/mingw_64/mkspecs/modules/qt_lib_activeqt.pri:
+C:/Qt/6.7.0/mingw_64/mkspecs/modules/qt_lib_activeqt_private.pri:
+C:/Qt/6.7.0/mingw_64/mkspecs/modules/qt_lib_axbase_private.pri:
+C:/Qt/6.7.0/mingw_64/mkspecs/modules/qt_lib_axcontainer.pri:
+C:/Qt/6.7.0/mingw_64/mkspecs/modules/qt_lib_axcontainer_private.pri:
+C:/Qt/6.7.0/mingw_64/mkspecs/modules/qt_lib_axserver.pri:
+C:/Qt/6.7.0/mingw_64/mkspecs/modules/qt_lib_axserver_private.pri:
 C:/Qt/6.7.0/mingw_64/mkspecs/modules/qt_lib_charts.pri:
 C:/Qt/6.7.0/mingw_64/mkspecs/modules/qt_lib_charts_private.pri:
 C:/Qt/6.7.0/mingw_64/mkspecs/modules/qt_lib_chartsqml.pri:
@@ -500,7 +516,7 @@ C:/Qt/6.7.0/mingw_64/mkspecs/features/exclusive_builds.prf:
 C:/Qt/6.7.0/mingw_64/mkspecs/features/toolchain.prf:
 C:/Qt/6.7.0/mingw_64/mkspecs/features/default_pre.prf:
 C:/Qt/6.7.0/mingw_64/mkspecs/features/win32/default_pre.prf:
-../../Qt-QrCodeGenerator-main/Qt-QrCodeGenerator.pri:
+../../QtQrCodeGenerator/QtQrCodeGenerator.pri:
 C:/Qt/6.7.0/mingw_64/mkspecs/features/resolve_config.prf:
 C:/Qt/6.7.0/mingw_64/mkspecs/features/exclusive_builds_post.prf:
 C:/Qt/6.7.0/mingw_64/mkspecs/features/default_post.prf:
@@ -514,6 +530,7 @@ C:/Qt/6.7.0/mingw_64/mkspecs/features/resources.prf:
 C:/Qt/6.7.0/mingw_64/mkspecs/features/moc.prf:
 C:/Qt/6.7.0/mingw_64/mkspecs/features/win32/opengl.prf:
 C:/Qt/6.7.0/mingw_64/mkspecs/features/uic.prf:
+C:/Qt/6.7.0/mingw_64/mkspecs/features/win32/dumpcpp.prf:
 C:/Qt/6.7.0/mingw_64/mkspecs/features/qmake_use.prf:
 C:/Qt/6.7.0/mingw_64/mkspecs/features/file_copies.prf:
 C:/Qt/6.7.0/mingw_64/mkspecs/features/win32/windows.prf:
@@ -522,6 +539,7 @@ C:/Qt/6.7.0/mingw_64/mkspecs/features/exceptions.prf:
 C:/Qt/6.7.0/mingw_64/mkspecs/features/yacc.prf:
 C:/Qt/6.7.0/mingw_64/mkspecs/features/lex.prf:
 ../../Presence.pro:
+C:/Qt/6.7.0/mingw_64/lib/Qt6AxContainer.prl:
 C:/Qt/6.7.0/mingw_64/lib/Qt6MultimediaWidgets.prl:
 C:/Qt/6.7.0/mingw_64/lib/Qt6Widgets.prl:
 C:/Qt/6.7.0/mingw_64/lib/Qt6Multimedia.prl:

@@ -17,6 +17,9 @@
 #include <QLayout>
 #include <QLayoutItem>
 
+#include <QtWidgets>
+#include <QAxObject>
+
 
 // Forward declaration of class files
 class Lecturer_Home_Qr;
@@ -55,7 +58,9 @@ class Lecturer_Student_Record : public QMainWindow
 
         void filterSearchCall();
         void selectEnlistedStudents(const int &pageNumber, const QStringList &keys_classInfo);
-        void displayEnlistedStudents(const QList<QStringList> &dataList, const QList<QStringList> &recordList);
+        void displayEnlistedStudents(const QList<QStringList> &dataList);
+
+        void createExcelFile(const QStringList &keys_classInfo);
 
         void switchWindow_LecturerHomeQr();
         void switchWindow_LecturerClassesList();

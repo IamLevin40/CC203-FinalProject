@@ -81,6 +81,8 @@ namespace Messages
     inline QString emptyAuthCode() { return "Authentication code is required."; }
     inline QString incompleteLengthAuthCode() { return "Authenticaion code should be exactly 6 characters long."; }
     inline QString invalidAuthCode() { return "Invalid authenticaion code."; }
+
+    inline QString unableCreateDataSheet() { return "Unable to create data sheet."; }
 }
 
 

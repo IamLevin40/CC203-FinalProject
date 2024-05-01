@@ -388,7 +388,6 @@ void Lecturer_Attendance_Alternative::updateStudentRecord(const QStringList &key
 
     if (!query.exec())
     {
-        qDebug() << query.lastError().text();
         QSqlDatabase::database().rollback();
         GlobalTimer::displayTextForDuration(ui->errorLabel, Messages::errorConnection(), 5000);
         return;
@@ -409,7 +408,6 @@ void Lecturer_Attendance_Alternative::updateStudentRecord(const QStringList &key
 
         if (!query.exec())
         {
-            qDebug() << query.lastError().text();
             QSqlDatabase::database().rollback();
             GlobalTimer::displayTextForDuration(ui->errorLabel, Messages::errorConnection(), 5000);
             return;
@@ -422,7 +420,6 @@ void Lecturer_Attendance_Alternative::updateStudentRecord(const QStringList &key
 
         if (!query.exec())
         {
-            qDebug() << query.lastError().text();
             QSqlDatabase::database().rollback();
             GlobalTimer::displayTextForDuration(ui->errorLabel, Messages::errorConnection(), 5000);
             return;
@@ -437,7 +434,6 @@ void Lecturer_Attendance_Alternative::updateStudentRecord(const QStringList &key
 
     if (!query.exec())
     {
-        qDebug() << query.lastError().text();
         QSqlDatabase::database().rollback();
         GlobalTimer::displayTextForDuration(ui->errorLabel, Messages::errorConnection(), 5000);
         return;
@@ -448,7 +444,6 @@ void Lecturer_Attendance_Alternative::updateStudentRecord(const QStringList &key
 
     if (!value.isEmpty())
     {
-        qDebug() << query.lastError().text();
         QSqlDatabase::database().rollback();
         GlobalTimer::displayTextForDuration(ui->errorLabel, Messages::alreadyAttendedStudent(), 5000);
         return;
@@ -465,7 +460,6 @@ void Lecturer_Attendance_Alternative::updateStudentRecord(const QStringList &key
 
     if (!query.exec())
     {
-        qDebug() << query.lastError().text();
         QSqlDatabase::database().rollback();
         GlobalTimer::displayTextForDuration(ui->errorLabel, Messages::errorConnection(), 5000);
         return;
@@ -479,7 +473,6 @@ void Lecturer_Attendance_Alternative::updateStudentRecord(const QStringList &key
 
     if (!query.exec())
     {
-        qDebug() << query.lastError().text();
         QSqlDatabase::database().rollback();
         GlobalTimer::displayTextForDuration(ui->errorLabel, Messages::errorConnection(), 5000);
         return;
@@ -491,7 +484,6 @@ void Lecturer_Attendance_Alternative::updateStudentRecord(const QStringList &key
 
     if (!query.exec())
     {
-        qDebug() << query.lastError().text();
         QSqlDatabase::database().rollback();
         GlobalTimer::displayTextForDuration(ui->errorLabel, Messages::errorConnection(), 5000);
         return;

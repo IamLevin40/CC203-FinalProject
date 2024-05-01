@@ -201,7 +201,8 @@ void Lecturer_Attendance_List::selectAttendedStudents(const int &pageNumber, con
     // Prepare sql command for selecting data
     query.prepare("SELECT * FROM " + tableName +
                   " WHERE " + currentDate + " IS NOT NULL AND " + currentDate + " != ''" +
-                  " LIMIT :limit OFFSET :offset");
+                  " ORDER BY " + currentDate + " ASC \
+                  LIMIT :limit OFFSET :offset");
 
     // Bind values to the query
     query.bindValue(":limit", $dataLimitPerPage);

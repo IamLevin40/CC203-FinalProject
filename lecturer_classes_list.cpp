@@ -142,6 +142,7 @@ void Lecturer_Classes_List::selectCorrespondClasses(const int &pageNumber, const
 
     // Prepare sql command for selecting data
     query.prepare("SELECT * FROM ClassInfo WHERE LecturerId = :lecturerId \
+                  ORDER BY SchoolYear, Semester DESC, SubjectCode, Program, Year, Section ASC \
                   LIMIT :limit OFFSET :offset");
 
     // Bind values to the query
