@@ -8,6 +8,7 @@
 #include "lecturer_home_qr.h"
 #include "lecturer_classes_list.h"
 #include "lecturer_attendance_list.h"
+#include "lecturer_attendance_alternative.h"
 
 
 Lecturer_Attendance_Scanner::Lecturer_Attendance_Scanner(QWidget *parent)
@@ -25,10 +26,12 @@ Lecturer_Attendance_Scanner::Lecturer_Attendance_Scanner(QWidget *parent)
     database.setPort($db_Port);
 
     // Initiate functions on awake
-    Lecturer_Attendance_Scanner::selectInfoFromDatabase($selectKeys_classInfo);
+    Lecturer_Attendance_Scanner::selectClassInfo($selectKeys_classInfo);
     Lecturer_Attendance_Scanner::setCameraScanner();
 
     // Connect ui objects to functions based on user interaction
+    connect(ui->alternativeButton, &QPushButton::clicked, this, &Lecturer_Attendance_Scanner::switchWindow_LecturerAttendanceAlternative);
+    connect(ui->captureButton, &QPushButton::clicked, this, &Lecturer_Attendance_Scanner::captureQrCall);
     connect(ui->confirmButton, &QPushButton::clicked, this, &Lecturer_Attendance_Scanner::takeAttendanceCall);
     ui->confirmButton->setEnabled(false);
 
@@ -49,7 +52,7 @@ Lecturer_Attendance_Scanner::~Lecturer_Attendance_Scanner()
 }
 
 
-void Lecturer_Attendance_Scanner::selectInfoFromDatabase(const QStringList &keys_classInfo)
+void Lecturer_Attendance_Scanner::selectClassInfo(const QStringList &keys_classInfo)
 {
     // Return error if unable to access the database
     if (!database.open())
@@ -109,11 +112,11 @@ void Lecturer_Attendance_Scanner::selectInfoFromDatabase(const QStringList &keys
     database.close();
 
     // Proceed to display data list
-    Lecturer_Attendance_Scanner::displayInfoFromDatabase(classDataList);
+    Lecturer_Attendance_Scanner::displayClassInfo(classDataList);
 }
 
 
-void Lecturer_Attendance_Scanner::displayInfoFromDatabase(const QStringList &dataList)
+void Lecturer_Attendance_Scanner::displayClassInfo(const QStringList &dataList)
 {
     // Assign members from dataList to variables
     QString subjectCode = dataList[0];
@@ -123,7 +126,7 @@ void Lecturer_Attendance_Scanner::displayInfoFromDatabase(const QStringList &dat
     QString section = dataList[4];
 
     // Display class information
-    ui->headerSubjectCodeLabel->setText(subjectCode);
+    ui->headerSubjectCodeLabel->setText(StringManipulator::separateSubjectCode(subjectCode));
     ui->headerSubjectDescLabel->setText(subjectDesc);
     ui->headerProgramLabel->setText(QString("%1 %2%3").arg(program, year, section));
 }
@@ -131,7 +134,7 @@ void Lecturer_Attendance_Scanner::displayInfoFromDatabase(const QStringList &dat
 
 void Lecturer_Attendance_Scanner::setCameraScanner()
 {
-
+    GlobalTimer::displayTextForDuration(ui->errorLabel, Messages::notExistScanner(), 5000);
 }
 
 
@@ -147,13 +150,21 @@ void Lecturer_Attendance_Scanner::decodeQrCall()
 }
 
 
-QString Lecturer_Attendance_Scanner::verifyQrCode(const QString &studentId, const QString &lastName, const QString &college)
+QString Lecturer_Attendance_Scanner::verifyQrCode(const QStringList &keys_classInfo, const QString &studentId, const QString &lastName, const QString &college,
+                                                  const QString &authCode)
 {
 
 }
 
 
-void Lecturer_Attendance_Scanner::displayDataFromDatabase(const QStringList &dataList)
+void Lecturer_Attendance_Scanner::selectStudentInfo(const QString &studentId, const QString &lastName, const QString &college,
+                                                    const QString &authCode)
+{
+
+}
+
+
+void Lecturer_Attendance_Scanner::displayStudentInfo(const QStringList &dataList)
 {
 
 }
@@ -165,7 +176,8 @@ void Lecturer_Attendance_Scanner::takeAttendanceCall()
 }
 
 
-void Lecturer_Attendance_Scanner::updateDataFromDatabase(const QStringList &keys_classInfo, const QStringList &dataList)
+void Lecturer_Attendance_Scanner::updateStudentRecord(const QStringList &keys_classInfo, const QStringList &dataList,
+                                                      const QString &currentDate, const QString &currentTime)
 {
 
 }
@@ -194,6 +206,15 @@ void Lecturer_Attendance_Scanner::switchWindow_LecturerAttendanceList()
     // Switch ui window to Lecturer_Attendance_List
     lecturer_attendance_list = new Lecturer_Attendance_List;
     lecturer_attendance_list->show();
+    this->hide();
+}
+
+
+void Lecturer_Attendance_Scanner::switchWindow_LecturerAttendanceAlternative()
+{
+    // Switch ui window to Lecturer_Attendance_Alternative
+    lecturer_attendance_alternative = new Lecturer_Attendance_Alternative;
+    lecturer_attendance_alternative->show();
     this->hide();
 }
 

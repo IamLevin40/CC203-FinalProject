@@ -25,7 +25,7 @@ Lecturer_Classes_List::Lecturer_Classes_List(QWidget *parent)
     database.setPort($db_Port);
 
     // Initiate functions on awake
-    Lecturer_Classes_List::selectInfoFromDatabase($logKey_lecturerId);
+    Lecturer_Classes_List::selectLecturerInfo($logKey_lecturerId);
     Lecturer_Classes_List::filterSearchCall();
     DateTimeUtils::updateDateTimeUtils(ui->dateLabel, ui->timeLabel);
 
@@ -52,7 +52,7 @@ Lecturer_Classes_List::~Lecturer_Classes_List()
 }
 
 
-void Lecturer_Classes_List::selectInfoFromDatabase(const QString &key_lecturerId)
+void Lecturer_Classes_List::selectLecturerInfo(const QString &key_lecturerId)
 {
     // Return error if unable to access the database
     if (!database.open())
@@ -94,11 +94,11 @@ void Lecturer_Classes_List::selectInfoFromDatabase(const QString &key_lecturerId
     database.close();
 
     // Proceed to display data list
-    Lecturer_Classes_List::displayInfoFromDatabase(lecturerDataList);
+    Lecturer_Classes_List::displayLecturerInfo(lecturerDataList);
 }
 
 
-void Lecturer_Classes_List::displayInfoFromDatabase(const QStringList &dataList)
+void Lecturer_Classes_List::displayLecturerInfo(const QStringList &dataList)
 {
     // Assign members from dataList to variables
     QString lastName = dataList[2];
@@ -119,11 +119,11 @@ void Lecturer_Classes_List::filterSearchCall()
     QString key_lecturerId = $logKey_lecturerId;
 
     // Proceed to selecting data from database
-    Lecturer_Classes_List::selectDataFromDatabase(pageNumber, key_lecturerId);
+    Lecturer_Classes_List::selectCorrespondClasses(pageNumber, key_lecturerId);
 }
 
 
-void Lecturer_Classes_List::selectDataFromDatabase(const int &pageNumber, const QString &lecturerId)
+void Lecturer_Classes_List::selectCorrespondClasses(const int &pageNumber, const QString &lecturerId)
 {
     // Return error if unable to access the database
     if (!database.open())
@@ -183,11 +183,11 @@ void Lecturer_Classes_List::selectDataFromDatabase(const int &pageNumber, const 
     database.close();
 
     // Proceed to display data list
-    Lecturer_Classes_List::displayDataFromDatabase(classDataList);
+    Lecturer_Classes_List::displayCorrespondClasses(classDataList);
 }
 
 
-void Lecturer_Classes_List::displayDataFromDatabase(const QList<QStringList> &dataList)
+void Lecturer_Classes_List::displayCorrespondClasses(const QList<QStringList> &dataList)
 {
     // Clear existing QGroupBox objects
     qDeleteAll(groupBoxList);
@@ -234,7 +234,7 @@ void Lecturer_Classes_List::displayDataFromDatabase(const QList<QStringList> &da
 
         // Set up dataSubjectCodeLabel
         QLabel *dataSubjectCodeLabel = new QLabel(dataGroup);
-        dataSubjectCodeLabel->setText(subjectCode);
+        dataSubjectCodeLabel->setText(StringManipulator::separateSubjectCode(subjectCode));
         dataSubjectCodeLabel->setStyleSheet("QLabel { color: #FFFFFF; font-family: Poppins; font-size: 9px; font-style: normal; font-weight: 600; line-height: normal; }");
         dataSubjectCodeLabel->setGeometry(10, 12, 45, 10);
 

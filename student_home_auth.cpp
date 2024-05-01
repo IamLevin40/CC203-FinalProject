@@ -24,7 +24,7 @@ Student_Home_Auth::Student_Home_Auth(QWidget *parent)
     database.setPort($db_Port);
 
     // Initiate functions on awake
-    Student_Home_Auth::selectInfoFromDatabase($logKey_studentId);
+    Student_Home_Auth::selectStudentInfo($logKey_studentId);
     DateTimeUtils::updateDateTimeUtils(ui->dateLabel, ui->timeLabel);
 
     // Connect ui objects to functions based on user interaction
@@ -44,7 +44,7 @@ Student_Home_Auth::~Student_Home_Auth()
 }
 
 
-void Student_Home_Auth::selectInfoFromDatabase(const QString &key_studentId)
+void Student_Home_Auth::selectStudentInfo(const QString &key_studentId)
 {
     // Return error if unable to access the database
     if (!database.open())
@@ -90,12 +90,12 @@ void Student_Home_Auth::selectInfoFromDatabase(const QString &key_studentId)
     database.close();
 
     // Proceed to display data list
-    Student_Home_Auth::displayInfoFromDatabase(studentDataList);
-    Student_Home_Auth::displayDataFromDatabase(studentDataList);
+    Student_Home_Auth::displayStudentInfo(studentDataList);
+    Student_Home_Auth::displayAuthInfo(studentDataList);
 }
 
 
-void Student_Home_Auth::displayInfoFromDatabase(const QStringList &dataList)
+void Student_Home_Auth::displayStudentInfo(const QStringList &dataList)
 {
     // Assign members from dataList to variables
     QString studentId = dataList[0];
@@ -113,7 +113,7 @@ void Student_Home_Auth::displayInfoFromDatabase(const QStringList &dataList)
 }
 
 
-void Student_Home_Auth::displayDataFromDatabase(const QStringList &dataList)
+void Student_Home_Auth::displayAuthInfo(const QStringList &dataList)
 {
     // Assign members from dataList to variables
     QString studentId = dataList[0];

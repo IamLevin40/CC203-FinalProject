@@ -25,7 +25,7 @@ Lecturer_Student_Record::Lecturer_Student_Record(QWidget *parent)
     database.setPort($db_Port);
 
     // Initiate functions on awake
-    Lecturer_Student_Record::selectInfoFromDatabase($selectKeys_classInfo);
+    Lecturer_Student_Record::selectClassInfo($selectKeys_classInfo);
     Lecturer_Student_Record::filterSearchCall();
     DateTimeUtils::updateDateTimeUtils(ui->dateLabel, ui->timeLabel);
 
@@ -53,7 +53,7 @@ Lecturer_Student_Record::~Lecturer_Student_Record()
 }
 
 
-void Lecturer_Student_Record::selectInfoFromDatabase(const QStringList &keys_classInfo)
+void Lecturer_Student_Record::selectClassInfo(const QStringList &keys_classInfo)
 {
     // Return error if unable to access the database
     if (!database.open())
@@ -113,11 +113,11 @@ void Lecturer_Student_Record::selectInfoFromDatabase(const QStringList &keys_cla
     database.close();
 
     // Proceed to display data list
-    Lecturer_Student_Record::displayInfoFromDatabase(classDataList);
+    Lecturer_Student_Record::displayClassInfo(classDataList);
 }
 
 
-void Lecturer_Student_Record::displayInfoFromDatabase(const QStringList &dataList)
+void Lecturer_Student_Record::displayClassInfo(const QStringList &dataList)
 {
     // Assign members from dataList to variables
     QString subjectCode = dataList[0];
@@ -127,7 +127,7 @@ void Lecturer_Student_Record::displayInfoFromDatabase(const QStringList &dataLis
     QString section = dataList[4];
 
     // Display class information
-    ui->headerSubjectCodeLabel->setText(subjectCode);
+    ui->headerSubjectCodeLabel->setText(StringManipulator::separateSubjectCode(subjectCode));
     ui->headerSubjectDescLabel->setText(subjectDesc);
     ui->headerProgramLabel->setText(QString("%1 %2%3").arg(program, year, section));
 }
@@ -140,11 +140,11 @@ void Lecturer_Student_Record::filterSearchCall()
     QStringList keys_classInfo = $selectKeys_classInfo;
 
     // Proceed to selecting data from database
-    Lecturer_Student_Record::selectDataFromDatabase(pageNumber, keys_classInfo);
+    Lecturer_Student_Record::selectEnlistedStudents(pageNumber, keys_classInfo);
 }
 
 
-void Lecturer_Student_Record::selectDataFromDatabase(const int &pageNumber, const QStringList &keys_classInfo)
+void Lecturer_Student_Record::selectEnlistedStudents(const int &pageNumber, const QStringList &keys_classInfo)
 {
     // Return error if unable to access the database
     if (!database.open())
@@ -161,7 +161,7 @@ void Lecturer_Student_Record::selectDataFromDatabase(const int &pageNumber, cons
     QString key_semester = keys_classInfo[4];
     QString key_schoolYear = keys_classInfo[5];
 
-    QString tableName = QString("%1%2%3%4_S%5SY%6").arg(key_subjectCode, key_program, key_year, key_section, key_semester, FilteringManager::convertSchoolYear(key_schoolYear));
+    QString tableName = QString("%1%2%3%4_S%5SY%6").arg(key_subjectCode, key_program, key_year, key_section, key_semester, StringManipulator::convertSchoolYear(key_schoolYear));
 
     // Calculate offset for pagination
     int offset = (pageNumber - 1) * $dataLimitPerPage;
@@ -245,11 +245,11 @@ void Lecturer_Student_Record::selectDataFromDatabase(const int &pageNumber, cons
     database.close();
 
     // Proceed to display data list
-    Lecturer_Student_Record::displayDataFromDatabase(studentDataList, studentRecordList);
+    Lecturer_Student_Record::displayEnlistedStudents(studentDataList, studentRecordList);
 }
 
 
-void Lecturer_Student_Record::displayDataFromDatabase(const QList<QStringList> &dataList, const QList<QStringList> &recordList)
+void Lecturer_Student_Record::displayEnlistedStudents(const QList<QStringList> &dataList, const QList<QStringList> &recordList)
 {
     // Clear existing QGroupBox objects
     qDeleteAll(groupBoxList);

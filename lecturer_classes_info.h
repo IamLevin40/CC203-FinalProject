@@ -42,11 +42,11 @@ class Lecturer_Classes_Info : public QMainWindow
         Lecturer_Student_Record *lecturer_student_record;
 
         // All custom functions() should be recognized upon here
-        void selectInfoFromDatabase(const QString &key_lecturerId);
-        void displayInfoFromDatabase(const QStringList &dataList);
+        void selectLecturerInfo(const QString &key_lecturerId);
+        void displayLecturerInfo(const QStringList &dataList);
 
-        void selectDataFromDatabase(const QStringList &keys_classInfo);
-        void displayDataFromDatabase(const QStringList &dataList);
+        void selectPickedClass(const QStringList &keys_classInfo);
+        void displayPickedClass(const QStringList &dataList);
 
         void switchWindow_LecturerHomeQr();
         void switchWindow_LecturerClassesList();

@@ -59,6 +59,7 @@ namespace Messages
     inline QString incompleteLengthStudentId() { return "Student number should be exactly 9 characters long."; }
     inline QString invalidStudentId() { return "Student number is invalid."; }
     inline QString notExistStudentId() { return "Student number does not exist."; }
+    inline QString alreadyAttendedStudent() { return "Student already attended today."; }
 
     inline QString emptyLecturerId() { return "Lecturer number is required."; }
     inline QString incompleteLengthLecturerId() { return "Lecturer number should be exactly 4 characters long."; }
@@ -72,6 +73,14 @@ namespace Messages
 
     inline QString noSelectedCollege() { return "No selected college."; }
     inline QString incorrectCollege() { return "Incorrect college."; }
+
+    inline QString noCameraSetup() { return "No camera set-up available."; }
+    inline QString notExistScanner() { return "Scanner does not exist."; }
+    inline QString invalidQrCode() { return "Invalid QR Code."; }
+
+    inline QString emptyAuthCode() { return "Authentication code is required."; }
+    inline QString incompleteLengthAuthCode() { return "Authenticaion code should be exactly 6 characters long."; }
+    inline QString invalidAuthCode() { return "Invalid authenticaion code."; }
 }
 
 
@@ -105,11 +114,19 @@ class DateTimeUtils
 };
 
 
+// String manipulator
+class StringManipulator
+{
+    public:
+        static QString separateSubjectCode(const QString &subjectCode);
+        static QString convertSchoolYear(const QString &schoolYear);
+};
+
+
 // Filtering manager
 class FilteringManager
 {
     public:
-        static QString convertSchoolYear(const QString &schoolYear);
         static void incrementPage(QObject *object, const int &index);
         static void validatePageEdit(QObject *object);
         static void checkComboboxIndex(QObject *object);

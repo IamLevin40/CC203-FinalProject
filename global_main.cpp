@@ -100,8 +100,31 @@ void DateTimeUtils::updateDateTimeUtils(QLabel *dateLabel, QLabel *timeLabel)
 }
 
 
+// Separate letters and digits of the subject code
+QString StringManipulator::separateSubjectCode(const QString &subjectCode)
+{
+    QString letters;
+    QString digits;
+    bool lastWasDigit = false;
+
+    // Iterate through all characters and group consecutive letters until digit is encountered
+    for (const QChar& ch : subjectCode) {
+        if (ch.isLetter() && !lastWasDigit) {
+            letters.append(ch);
+        } else if (ch.isDigit()) {
+            digits.append(ch);
+            lastWasDigit = true;
+        } else {
+            lastWasDigit = false;
+        }
+    }
+
+    return letters + " " + digits;
+}
+
+
 // Convert school year to short year and vice versa
-QString FilteringManager::convertSchoolYear(const QString &schoolYear)
+QString StringManipulator::convertSchoolYear(const QString &schoolYear)
 {
     // Check if the input year has a dash, if yes, convert to short year
     if (schoolYear.contains("-"))

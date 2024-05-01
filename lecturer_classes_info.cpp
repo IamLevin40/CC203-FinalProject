@@ -26,8 +26,8 @@ Lecturer_Classes_Info::Lecturer_Classes_Info(QWidget *parent)
     database.setPort($db_Port);
 
     // Initiate functions on awake
-    Lecturer_Classes_Info::selectInfoFromDatabase($logKey_lecturerId);
-    Lecturer_Classes_Info::selectDataFromDatabase($selectKeys_classInfo);
+    Lecturer_Classes_Info::selectLecturerInfo($logKey_lecturerId);
+    Lecturer_Classes_Info::selectPickedClass($selectKeys_classInfo);
     DateTimeUtils::updateDateTimeUtils(ui->dateLabel, ui->timeLabel);
 
     // Connect ui objects to functions based on user interaction
@@ -50,7 +50,7 @@ Lecturer_Classes_Info::~Lecturer_Classes_Info()
 }
 
 
-void Lecturer_Classes_Info::selectInfoFromDatabase(const QString &key_lecturerId)
+void Lecturer_Classes_Info::selectLecturerInfo(const QString &key_lecturerId)
 {
     // Return error if unable to access the database
     if (!database.open())
@@ -92,11 +92,11 @@ void Lecturer_Classes_Info::selectInfoFromDatabase(const QString &key_lecturerId
     database.close();
 
     // Proceed to display data list
-    Lecturer_Classes_Info::displayInfoFromDatabase(lecturerDataList);
+    Lecturer_Classes_Info::displayLecturerInfo(lecturerDataList);
 }
 
 
-void Lecturer_Classes_Info::displayInfoFromDatabase(const QStringList &dataList)
+void Lecturer_Classes_Info::displayLecturerInfo(const QStringList &dataList)
 {
     // Assign members from dataList to variables
     QString lastName = dataList[2];
@@ -110,7 +110,7 @@ void Lecturer_Classes_Info::displayInfoFromDatabase(const QStringList &dataList)
 }
 
 
-void Lecturer_Classes_Info::selectDataFromDatabase(const QStringList &keys_classInfo)
+void Lecturer_Classes_Info::selectPickedClass(const QStringList &keys_classInfo)
 {
     // Return error if unable to access the database
     if (!database.open())
@@ -176,11 +176,11 @@ void Lecturer_Classes_Info::selectDataFromDatabase(const QStringList &keys_class
     database.close();
 
     // Proceed to display data list
-    Lecturer_Classes_Info::displayDataFromDatabase(classDataList);
+    Lecturer_Classes_Info::displayPickedClass(classDataList);
 }
 
 
-void Lecturer_Classes_Info::displayDataFromDatabase(const QStringList &dataList)
+void Lecturer_Classes_Info::displayPickedClass(const QStringList &dataList)
 {
     // Assign members from dataList to variables
     QString subjectCode = dataList[0];
@@ -195,7 +195,7 @@ void Lecturer_Classes_Info::displayDataFromDatabase(const QStringList &dataList)
     QString room = dataList[9];
 
     // Display class information
-    ui->subjectCodeLabel->setText(subjectCode);
+    ui->subjectCodeLabel->setText(StringManipulator::separateSubjectCode(subjectCode));
     ui->subjectDescLabel->setText(subjectDesc);
     ui->schoolYearLabel->setText(QString("SY %1   SEM %2").arg(schoolYear, semester));
     ui->programLabel->setText(QString("%1 %2%3").arg(program, year, section));

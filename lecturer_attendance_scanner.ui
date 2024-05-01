@@ -688,7 +688,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="alternativeAttendanceButton">
+     <widget class="QPushButton" name="alternativeButton">
       <property name="enabled">
        <bool>true</bool>
       </property>

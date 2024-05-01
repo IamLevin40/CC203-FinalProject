@@ -38,10 +38,10 @@ class Student_Home_Auth : public QMainWindow
         Student_Home_Qr *student_home_qr;
 
         // All custom functions() should be recognized upon here
-        void selectInfoFromDatabase(const QString &key_studentId);
-        void displayInfoFromDatabase(const QStringList &dataList);
+        void selectStudentInfo(const QString &key_studentId);
+        void displayStudentInfo(const QStringList &dataList);
 
-        void displayDataFromDatabase(const QStringList &dataList);
+        void displayAuthInfo(const QStringList &dataList);
 
         void switchWindow_StudentLoginForm();
         void switchWindow_StudentHomeQr();

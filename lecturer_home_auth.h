@@ -40,10 +40,10 @@ class Lecturer_Home_Auth : public QMainWindow
         Lecturer_Home_Qr *lecturer_home_qr;
 
         // All custom functions() should be recognized upon here
-        void selectInfoFromDatabase(const QString &key_lecturerId);
-        void displayInfoFromDatabase(const QStringList &dataList);
+        void selectLecturerInfo(const QString &key_lecturerId);
+        void displayLecturerInfo(const QStringList &dataList);
 
-        void displayDataFromDatabase(const QStringList &dataList);
+        void displayAuthInfo(const QStringList &dataList);
 
         void switchWindow_LecturerLoginForm();
         void switchWindow_LecturerClassesList();

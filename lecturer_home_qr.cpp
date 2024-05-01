@@ -25,7 +25,7 @@ Lecturer_Home_Qr::Lecturer_Home_Qr(QWidget *parent)
     database.setPort($db_Port);
 
     // Initiate functions on awake
-    Lecturer_Home_Qr::selectInfoFromDatabase($logKey_lecturerId);
+    Lecturer_Home_Qr::selectLecturerInfo($logKey_lecturerId);
     DateTimeUtils::updateDateTimeUtils(ui->dateLabel, ui->timeLabel);
 
     // Connect ui objects to functions based on user interaction
@@ -46,7 +46,7 @@ Lecturer_Home_Qr::~Lecturer_Home_Qr()
 }
 
 
-void Lecturer_Home_Qr::selectInfoFromDatabase(const QString &key_lecturerId)
+void Lecturer_Home_Qr::selectLecturerInfo(const QString &key_lecturerId)
 {
     // Return error if unable to access the database
     if (!database.open())
@@ -88,13 +88,13 @@ void Lecturer_Home_Qr::selectInfoFromDatabase(const QString &key_lecturerId)
     database.close();
 
     // Proceed to display data list
-    Lecturer_Home_Qr::displayInfoFromDatabase(lecturerDataList);
-    Lecturer_Home_Qr::displayDataFromDatabase(lecturerDataList);
+    Lecturer_Home_Qr::displayLecturerInfo(lecturerDataList);
+    Lecturer_Home_Qr::displayQrInfo(lecturerDataList);
     Lecturer_Home_Qr::generateQr(lecturerDataList);
 }
 
 
-void Lecturer_Home_Qr::displayInfoFromDatabase(const QStringList &dataList)
+void Lecturer_Home_Qr::displayLecturerInfo(const QStringList &dataList)
 {
     // Assign members from dataList to variables
     QString lastName = dataList[2];
@@ -108,7 +108,7 @@ void Lecturer_Home_Qr::displayInfoFromDatabase(const QStringList &dataList)
 }
 
 
-void Lecturer_Home_Qr::displayDataFromDatabase(const QStringList &dataList)
+void Lecturer_Home_Qr::displayQrInfo(const QStringList &dataList)
 {
     // Assign members from dataList to variables
     QString lastName = dataList[2];

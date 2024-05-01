@@ -50,12 +50,12 @@ class Lecturer_Classes_List : public QMainWindow
         Lecturer_Classes_Info *lecturer_classes_info;
 
         // All custom functions() should be recognized upon here
-        void selectInfoFromDatabase(const QString &key_lecturerId);
-        void displayInfoFromDatabase(const QStringList &dataList);
+        void selectLecturerInfo(const QString &key_lecturerId);
+        void displayLecturerInfo(const QStringList &dataList);
 
         void filterSearchCall();
-        void selectDataFromDatabase(const int &pageNumber, const QString &lecturerId);
-        void displayDataFromDatabase(const QList<QStringList> &dataList);
+        void selectCorrespondClasses(const int &pageNumber, const QString &lecturerId);
+        void displayCorrespondClasses(const QList<QStringList> &dataList);
 
         void switchWindow_LecturerLoginForm();
         void switchWindow_LecturerHomeQr();

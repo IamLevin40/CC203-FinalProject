@@ -42,10 +42,10 @@ namespace Ui {
         Lecturer_Home_Auth *lecturer_home_auth;
 
         // All custom functions() should be recognized upon here
-        void selectInfoFromDatabase(const QString &key_lecturerId);
-        void displayInfoFromDatabase(const QStringList &dataList);
+        void selectLecturerInfo(const QString &key_lecturerId);
+        void displayLecturerInfo(const QStringList &dataList);
 
-        void displayDataFromDatabase(const QStringList &dataList);
+        void displayQrInfo(const QStringList &dataList);
         void generateQr(const QStringList &dataList);
 
         void switchWindow_LecturerLoginForm();
