@@ -4,7 +4,8 @@ QT += core gui sql axcontainer multimedia multimediawidgets
 CONFIG += c++17
 
 include(QtQrCodeGenerator/QtQrCodeGenerator.pri)
-LIBS += -L../qzxing
+# INCLUDEPATH += $$PWD/qzxing/include
+# LIBS += -L$$PWD/qzxing/lib -lqzxing
 
 
 # You can make your code fail to compile if it uses deprecated APIs.

@@ -39,6 +39,7 @@
         <file>assets/form_background.png</file>
         <file>assets/header_large.png</file>
         <file>assets/header_short.png</file>
+        <file>assets/hide.png</file>
         <file>assets/home_selected.png</file>
         <file>assets/home_unselected.png</file>
         <file>assets/lecturer_selected.png</file>
@@ -63,6 +64,7 @@
         <file>assets/take_attendance.png</file>
         <file>assets/update.png</file>
         <file>assets/verify.png</file>
+        <file>assets/view.png</file>
         <file>assets/white_box.png</file>
         <file>assets/yes.png</file>
     </qresource>

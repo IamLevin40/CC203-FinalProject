@@ -129,6 +129,10 @@ public:
 "	border: 0px;\n"
 "	border-radius: 0px;\n"
 "	background: none;\n"
+"}\n"
+"\n"
+"QPushButton:focus { \n"
+"	outline: none; \n"
 "}"));
         QIcon icon1;
         icon1.addFile(QString::fromUtf8(":/res/assets/student_selection.png"), QSize(), QIcon::Normal, QIcon::Off);
@@ -142,6 +146,10 @@ public:
 "	border: 0px;\n"
 "	border-radius: 0px;\n"
 "	background: none;\n"
+"}\n"
+"\n"
+"QPushButton:focus { \n"
+"	outline: none; \n"
 "}"));
         QIcon icon2;
         icon2.addFile(QString::fromUtf8(":/res/assets/lecturer_selection.png"), QSize(), QIcon::Normal, QIcon::Off);

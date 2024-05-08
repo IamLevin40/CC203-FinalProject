@@ -350,7 +350,7 @@ void Lecturer_Attendance_List::displayAttendedStudents(const QList<QStringList> 
         QLabel *dataTimeAtCurrentDateLabel = new QLabel(dataGroup);
         dataTimeAtCurrentDateLabel->setText(timeAtCurrentDate);
         dataTimeAtCurrentDateLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-        dataTimeAtCurrentDateLabel->setStyleSheet("QLabel { color: #15CAE3; font-family: Poppins; font-size: 9px; font-style: normal; font-weight: 400; line-height: normal; }");
+        dataTimeAtCurrentDateLabel->setStyleSheet("QLabel { color: #FFFFFF; font-family: Poppins; font-size: 9px; font-style: normal; font-weight: 400; line-height: normal; }");
         dataTimeAtCurrentDateLabel->setGeometry(240, 40, 60, 10);
 
         // Add data group box to contents layout

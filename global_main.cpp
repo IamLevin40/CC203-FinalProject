@@ -46,6 +46,19 @@ namespace Colleges
 }
 
 
+// Toggling echo mode for textboxes
+void ToggleManager::toggleEchoMode(QLineEdit *textbox, QPushButton *toggle)
+{
+    // Check if these objects are valid
+    if (!textbox || !toggle)
+        return;
+
+    // Toggle echo mode of textbox
+    textbox->setEchoMode((textbox->echoMode() == QLineEdit::Normal) ? QLineEdit::Password : QLineEdit::Normal);
+    toggle->setIcon(QIcon(QString(":/res/assets/%1.png").arg((textbox->echoMode() == QLineEdit::Password) ? "hide" : "view")));
+}
+
+
 // Generate authentication code
 QString Generator::authCodeGenerator()
 {

@@ -1,19 +1,24 @@
 #ifndef GLOBAL_MAIN_H
 #define GLOBAL_MAIN_H
 
+#include <QObject>
+#include <QLabel>
+#include <QComboBox>
+#include <QLineEdit>
+#include <QTextEdit>
+#include <QPushButton>
+#include <QIcon>
+
 #include <QString>
 #include <QVector>
 #include <QPoint>
 #include <QList>
 #include <QStringList>
+#include <QDateTime>
 #include <QTime>
 #include <QTimer>
-#include <QRandomGenerator>
 #include <QSettings>
-#include <QObject>
-#include <QLabel>
-#include <QComboBox>
-#include <QLineEdit>
+#include <QRandomGenerator>
 
 
 // Global variables
@@ -84,6 +89,13 @@ namespace Messages
 
     inline QString unableCreateDataSheet() { return "Unable to create data sheet."; }
 }
+
+
+// Toggle manager
+class ToggleManager {
+    public:
+        static void toggleEchoMode(QLineEdit *textbox, QPushButton *toggle);
+};
 
 
 // Authentication code generator

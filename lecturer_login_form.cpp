@@ -29,6 +29,7 @@ Lecturer_Login_Form::Lecturer_Login_Form(QWidget *parent)
     // Connect ui objects to functions based on user interaction
     connect(ui->loginButton, &QPushButton::clicked, this, &Lecturer_Login_Form::loginCall);
     connect(ui->backButton, &QPushButton::clicked, this, &Lecturer_Login_Form::switchWindow_SelectProfession);
+    connect(ui->pinToggle, &QPushButton::clicked, this, [=](){ ToggleManager::toggleEchoMode(ui->pinTextbox, ui->pinToggle); });
 
     // Load window position
     QPoint windowPos = WindowPositionManager::loadWindowPosition();

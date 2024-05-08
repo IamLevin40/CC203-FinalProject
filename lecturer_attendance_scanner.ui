@@ -74,6 +74,10 @@
 	border: 0px;
 	border-radius: 0px;
 	background: none;
+}
+
+QPushButton:focus { 
+	outline: none; 
 }</string>
      </property>
      <property name="text">
@@ -234,6 +238,10 @@
 	border: 0px;
 	border-radius: 0px;
 	background: none;
+}
+
+QPushButton:focus { 
+	outline: none; 
 }</string>
      </property>
      <property name="text">
@@ -294,6 +302,10 @@
 	border: 0px;
 	border-radius: 0px;
 	background: none;
+}
+
+QPushButton:focus { 
+	outline: none; 
 }</string>
      </property>
      <property name="text">
@@ -357,6 +369,10 @@
 	border: 0px;
 	border-radius: 0px;
 	background: none;
+}
+
+QPushButton:focus { 
+	outline: none; 
 }</string>
      </property>
      <property name="text">
@@ -669,6 +685,10 @@
 	border: 0px;
 	border-radius: 0px;
 	background: none;
+}
+
+QPushButton:focus { 
+	outline: none; 
 }</string>
       </property>
       <property name="text">
@@ -705,6 +725,10 @@
 	border: 0px;
 	border-radius: 0px;
 	background: none;
+}
+
+QPushButton:focus { 
+	outline: none; 
 }</string>
       </property>
       <property name="text">

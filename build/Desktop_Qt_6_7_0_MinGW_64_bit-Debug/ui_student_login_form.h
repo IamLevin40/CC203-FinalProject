@@ -38,6 +38,7 @@ public:
     QGroupBox *pinGroup;
     QLabel *pinHud;
     QLineEdit *pinTextbox;
+    QPushButton *pinToggle;
     QGroupBox *collegeGroup;
     QComboBox *collegeCombobox;
     QLabel *collegeHud;
@@ -181,7 +182,7 @@ public:
         pinHud->setAlignment(Qt::AlignCenter);
         pinTextbox = new QLineEdit(pinGroup);
         pinTextbox->setObjectName("pinTextbox");
-        pinTextbox->setGeometry(QRect(15, 0, 220, 30));
+        pinTextbox->setGeometry(QRect(15, 0, 200, 30));
         pinTextbox->setFont(font2);
         pinTextbox->setStyleSheet(QString::fromUtf8("QLineEdit {\n"
 "	background-color: transparent;\n"
@@ -195,6 +196,22 @@ public:
 "}"));
         pinTextbox->setMaxLength(6);
         pinTextbox->setEchoMode(QLineEdit::Password);
+        pinToggle = new QPushButton(pinGroup);
+        pinToggle->setObjectName("pinToggle");
+        pinToggle->setGeometry(QRect(215, 4, 25, 25));
+        pinToggle->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"	border: 0px;\n"
+"	border-radius: 0px;\n"
+"	background: none;\n"
+"}\n"
+"\n"
+"QPushButton:focus { \n"
+"	outline: none; \n"
+"}"));
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8(":/res/assets/hide.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pinToggle->setIcon(icon1);
+        pinToggle->setIconSize(QSize(25, 25));
         collegeGroup = new QGroupBox(formGroup);
         collegeGroup->setObjectName("collegeGroup");
         collegeGroup->setEnabled(true);
@@ -274,10 +291,14 @@ public:
 "	border: 0px;\n"
 "	border-radius: 0px;\n"
 "	background: none;\n"
+"}\n"
+"\n"
+"QPushButton:focus { \n"
+"	outline: none; \n"
 "}"));
-        QIcon icon1;
-        icon1.addFile(QString::fromUtf8(":/res/assets/login_button.png"), QSize(), QIcon::Normal, QIcon::Off);
-        loginButton->setIcon(icon1);
+        QIcon icon2;
+        icon2.addFile(QString::fromUtf8(":/res/assets/login_button.png"), QSize(), QIcon::Normal, QIcon::Off);
+        loginButton->setIcon(icon2);
         loginButton->setIconSize(QSize(210, 40));
         loginButton->setFlat(true);
         errorLabel = new QLabel(formGroup);
@@ -301,10 +322,14 @@ public:
 "	border: 0px;\n"
 "	border-radius: 0px;\n"
 "	background: none;\n"
+"}\n"
+"\n"
+"QPushButton:focus { \n"
+"	outline: none; \n"
 "}"));
-        QIcon icon2;
-        icon2.addFile(QString::fromUtf8(":/res/assets/back.png"), QSize(), QIcon::Normal, QIcon::Off);
-        backButton->setIcon(icon2);
+        QIcon icon3;
+        icon3.addFile(QString::fromUtf8(":/res/assets/back.png"), QSize(), QIcon::Normal, QIcon::Off);
+        backButton->setIcon(icon3);
         backButton->setIconSize(QSize(30, 30));
         backButton->setFlat(true);
         Student_Login_Form->setCentralWidget(centralwidget);
@@ -327,6 +352,7 @@ public:
         pinGroup->setTitle(QString());
         pinHud->setText(QString());
         pinTextbox->setPlaceholderText(QCoreApplication::translate("Student_Login_Form", "Pin", nullptr));
+        pinToggle->setText(QString());
         collegeGroup->setTitle(QString());
         collegeCombobox->setPlaceholderText(QCoreApplication::translate("Student_Login_Form", "College", nullptr));
         collegeHud->setText(QString());

@@ -324,7 +324,7 @@
        <rect>
         <x>15</x>
         <y>0</y>
-        <width>220</width>
+        <width>200</width>
         <height>30</height>
        </rect>
       </property>
@@ -356,6 +356,40 @@
       </property>
       <property name="placeholderText">
        <string>Pin</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pinToggle">
+      <property name="geometry">
+       <rect>
+        <x>215</x>
+        <y>4</y>
+        <width>25</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border: 0px;
+	border-radius: 0px;
+	background: none;
+}
+
+QPushButton:focus { 
+	outline: none; 
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resources.qrc">
+        <normaloff>:/res/assets/hide.png</normaloff>:/res/assets/hide.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>25</width>
+        <height>25</height>
+       </size>
       </property>
      </widget>
     </widget>
@@ -509,6 +543,10 @@ QComboBox QScrollBar::sub-page:vertical {
 	border: 0px;
 	border-radius: 0px;
 	background: none;
+}
+
+QPushButton:focus { 
+	outline: none; 
 }</string>
      </property>
      <property name="text">
@@ -573,6 +611,10 @@ QComboBox QScrollBar::sub-page:vertical {
 	border: 0px;
 	border-radius: 0px;
 	background: none;
+}
+
+QPushButton:focus { 
+	outline: none; 
 }</string>
     </property>
     <property name="text">
