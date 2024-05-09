@@ -405,7 +405,14 @@ void Lecturer_Student_Record::createExcelFile(const QStringList &keys_classInfo)
                     QAxObject *worksheet = worksheets->querySubObject("Item(int)", 1); // Get the first worksheet
                     if (worksheet)
                     {
-                        // Set column names starting from B2
+                        // Set font family for all text to Times New Roman
+                        QAxObject *font = worksheet->querySubObject("Range(const QString&)", "A1:Z128")->querySubObject("Font");
+                        if (font) {
+                            font->setProperty("Name", "Times New Roman");
+                            delete font;
+                        }
+
+                        // Insert column names for each column
                         for (int i = 0; i < columnNames.size(); ++i) {
                             QAxObject *cell = worksheet->querySubObject("Cells(int,int)", 2, i + 2);
                             if (cell) {
@@ -425,11 +432,21 @@ void Lecturer_Student_Record::createExcelFile(const QStringList &keys_classInfo)
                             }
                         }
 
-                        // Set row data starting from B4
+                        // Set index number for each row
+                        for (int row = 0; row < studentDataList.size(); ++row) {
+                            QAxObject *cell = worksheet->querySubObject("Cells(int,int)", row + 4, 2);
+                            if (cell) {
+                                cell->setProperty("Value", row + 1);
+                                cell->setProperty("HorizontalAlignment", -4108);
+                                delete cell;
+                            }
+                        }
+
+                        // Insert row of data
                         for (int row = 0; row < studentDataList.size(); ++row) {
                             const QStringList &rowValues = studentDataList.at(row);
                             for (int col = 0; col < rowValues.size(); ++col) {
-                                QAxObject *cell = worksheet->querySubObject("Cells(int,int)", row + 4, col + 2);
+                                QAxObject *cell = worksheet->querySubObject("Cells(int,int)", row + 4, col + 3);
                                 if (cell) {
                                     cell->setProperty("Value", rowValues.at(col));
                                     delete cell;
@@ -446,9 +463,9 @@ void Lecturer_Student_Record::createExcelFile(const QStringList &keys_classInfo)
                                 }
                             }
                             // Set the width of the column to accommodate the maximum length of data
-                            QAxObject *range = worksheet->querySubObject("Columns(int)", col + 2);
+                            QAxObject *range = worksheet->querySubObject("Columns(int)", col + 3);
                             if (range) {
-                                range->setProperty("ColumnWidth", maxLength + 5);  // Add extra padding
+                                range->setProperty("ColumnWidth", maxLength + 8);  // Add extra padding
                                 delete range;
                             }
                         }
