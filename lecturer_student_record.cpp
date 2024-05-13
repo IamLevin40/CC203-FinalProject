@@ -384,7 +384,7 @@ void Lecturer_Student_Record::createExcelFile(const QStringList &keys_classInfo)
 
     // Set up excel file object
     QString fileName = tableName;
-    QStringList columnNames = {"StudentId", "LastName", "FirstName", "P", "A"};
+    QStringList columnNames = {"No.", "StudentId", "LastName", "FirstName", "P", "A"};
 
     QAxObject excel("Excel.Application");
 

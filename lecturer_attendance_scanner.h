@@ -11,6 +11,7 @@
 #include <QtCore>
 #include <QtGui>
 #include <QCamera>
+#include <QMediaCaptureSession>
 #include <QtWidgets>
 #include <QtMultimedia>
 #include <QtMultimediaWidgets>

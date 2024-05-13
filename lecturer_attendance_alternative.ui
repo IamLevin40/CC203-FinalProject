@@ -282,7 +282,7 @@ QPushButton:focus {
 }</string>
       </property>
       <property name="maxLength">
-       <number>9</number>
+       <number>6</number>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
