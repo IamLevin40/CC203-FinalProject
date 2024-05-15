@@ -68,3 +68,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 RESOURCES += \
     resources.qrc
 
+
+#
+#   Copyright (c) 2024 - WVSU-CICT BSCS 1B: Batch 2027
+#   All rights reserved.
+#

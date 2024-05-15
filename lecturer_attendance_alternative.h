@@ -62,3 +62,9 @@ class Lecturer_Attendance_Alternative : public QMainWindow
 };
 
 #endif // LECTURER_ATTENDANCE_ALTERNATIVE_H
+
+
+/*
+ *   Copyright (c) 2024 - WVSU-CICT BSCS 1B: Batch 2027
+ *   All rights reserved.
+ */

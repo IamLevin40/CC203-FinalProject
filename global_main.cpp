@@ -236,3 +236,9 @@ void WindowPositionManager::saveWindowPosition(const QPoint &position)
     QSettings settings($appCompany, $appName);
     settings.setValue("windowPosition", position);
 }
+
+
+/*
+ *   Copyright (c) 2024 - WVSU-CICT BSCS 1B: Batch 2027
+ *   All rights reserved.
+ */

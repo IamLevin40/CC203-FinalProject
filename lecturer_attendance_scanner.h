@@ -75,3 +75,9 @@ class Lecturer_Attendance_Scanner : public QMainWindow
 };
 
 #endif // LECTURER_ATTENDANCE_SCANNER_H
+
+
+/*
+ *   Copyright (c) 2024 - WVSU-CICT BSCS 1B: Batch 2027
+ *   All rights reserved.
+ */

@@ -55,3 +55,9 @@ class Lecturer_Classes_Info : public QMainWindow
 };
 
 #endif // LECTURER_CLASSES_INFO_H
+
+
+/*
+ *   Copyright (c) 2024 - WVSU-CICT BSCS 1B: Batch 2027
+ *   All rights reserved.
+ */

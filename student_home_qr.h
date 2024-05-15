@@ -51,3 +51,9 @@ class Student_Home_Qr : public QMainWindow
 };
 
 #endif // STUDENT_HOME_QR_H
+
+
+/*
+ *   Copyright (c) 2024 - WVSU-CICT BSCS 1B: Batch 2027
+ *   All rights reserved.
+ */
